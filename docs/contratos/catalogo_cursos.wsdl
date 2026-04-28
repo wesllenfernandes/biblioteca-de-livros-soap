@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:ns2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://exemplo.com/catalogocursos" name="Application">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://exemplo.com/catalogocursos" elementFormDefault="qualified">
+      <xs:complexType name="Categoria">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer" minOccurs="0" nillable="true" />
+          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true" />
+          <xs:element name="descricao" type="xs:string" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Curso">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer" minOccurs="0" nillable="true" />
+          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true" />
+          <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true" />
+          <xs:element name="categoria_nome" type="xs:string" minOccurs="0" nillable="true" />
+          <xs:element name="carga_horaria" type="xs:integer" minOccurs="0" nillable="true" />
+          <xs:element name="preco" type="xs:integer" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CursoArray">
+        <xs:sequence>
+          <xs:element name="Curso" type="tns:Curso" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listar_categorias" />
+      <xs:complexType name="listar_cursos" />
+      <xs:complexType name="Administrador">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer" minOccurs="0" nillable="true" />
+          <xs:element name="usuario" type="xs:string" minOccurs="0" nillable="true" />
+          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true" />
+          <xs:element name="criado_em" type="xs:string" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Token">
+        <xs:sequence>
+          <xs:element name="token" type="xs:string" minOccurs="0" nillable="true" />
+          <xs:element name="administrador_id" type="xs:integer" minOccurs="0" nillable="true" />
+          <xs:element name="administrador_nome" type="xs:string" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="buscar_por_categoria">
+        <xs:sequence>
+          <xs:element name="categoria" type="xs:string" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="buscar_por_categoriaResponse">
+        <xs:sequence>
+          <xs:element name="buscar_por_categoriaResult" type="tns:CursoArray" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cadastrar_categoria">
+        <xs:sequence>
+          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true" />
+          <xs:element name="descricao" type="xs:string" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cadastrar_categoriaResponse">
+        <xs:sequence>
+          <xs:element name="cadastrar_categoriaResult" type="tns:Categoria" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cadastrar_curso">
+        <xs:sequence>
+          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true" />
+          <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true" />
+          <xs:element name="carga_horaria" type="xs:integer" minOccurs="0" nillable="true" />
+          <xs:element name="preco" type="xs:integer" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cadastrar_cursoResponse">
+        <xs:sequence>
+          <xs:element name="cadastrar_cursoResult" type="tns:Curso" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="consultar_curso">
+        <xs:sequence>
+          <xs:element name="curso_id" type="xs:integer" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="consultar_cursoResponse">
+        <xs:sequence>
+          <xs:element name="consultar_cursoResult" type="tns:Curso" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="criar_administrador">
+        <xs:sequence>
+          <xs:element name="usuario" type="xs:string" minOccurs="0" nillable="true" />
+          <xs:element name="senha" type="xs:string" minOccurs="0" nillable="true" />
+          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="login">
+        <xs:sequence>
+          <xs:element name="usuario" type="xs:string" minOccurs="0" nillable="true" />
+          <xs:element name="senha" type="xs:string" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="logout">
+        <xs:sequence>
+          <xs:element name="token" type="xs:string" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="logoutResponse">
+        <xs:sequence>
+          <xs:element name="logoutResult" type="xs:boolean" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validar_token">
+        <xs:sequence>
+          <xs:element name="token" type="xs:string" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validar_tokenResponse">
+        <xs:sequence>
+          <xs:element name="validar_tokenResult" type="xs:boolean" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CategoriaArray">
+        <xs:sequence>
+          <xs:element name="Categoria" type="tns:Categoria" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="criar_administradorResponse">
+        <xs:sequence>
+          <xs:element name="criar_administradorResult" type="tns:Administrador" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loginResponse">
+        <xs:sequence>
+          <xs:element name="loginResult" type="tns:Token" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listar_categoriasResponse">
+        <xs:sequence>
+          <xs:element name="listar_categoriasResult" type="tns:CategoriaArray" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listar_cursosResponse">
+        <xs:sequence>
+          <xs:element name="listar_cursosResult" type="tns:CursoArray" minOccurs="0" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Categoria" type="tns:Categoria" />
+      <xs:element name="Curso" type="tns:Curso" />
+      <xs:element name="CursoArray" type="tns:CursoArray" />
+      <xs:element name="listar_categorias" type="tns:listar_categorias" />
+      <xs:element name="listar_cursos" type="tns:listar_cursos" />
+      <xs:element name="Administrador" type="tns:Administrador" />
+      <xs:element name="Token" type="tns:Token" />
+      <xs:element name="buscar_por_categoria" type="tns:buscar_por_categoria" />
+      <xs:element name="buscar_por_categoriaResponse" type="tns:buscar_por_categoriaResponse" />
+      <xs:element name="cadastrar_categoria" type="tns:cadastrar_categoria" />
+      <xs:element name="cadastrar_categoriaResponse" type="tns:cadastrar_categoriaResponse" />
+      <xs:element name="cadastrar_curso" type="tns:cadastrar_curso" />
+      <xs:element name="cadastrar_cursoResponse" type="tns:cadastrar_cursoResponse" />
+      <xs:element name="consultar_curso" type="tns:consultar_curso" />
+      <xs:element name="consultar_cursoResponse" type="tns:consultar_cursoResponse" />
+      <xs:element name="criar_administrador" type="tns:criar_administrador" />
+      <xs:element name="login" type="tns:login" />
+      <xs:element name="logout" type="tns:logout" />
+      <xs:element name="logoutResponse" type="tns:logoutResponse" />
+      <xs:element name="validar_token" type="tns:validar_token" />
+      <xs:element name="validar_tokenResponse" type="tns:validar_tokenResponse" />
+      <xs:element name="CategoriaArray" type="tns:CategoriaArray" />
+      <xs:element name="criar_administradorResponse" type="tns:criar_administradorResponse" />
+      <xs:element name="loginResponse" type="tns:loginResponse" />
+      <xs:element name="listar_categoriasResponse" type="tns:listar_categoriasResponse" />
+      <xs:element name="listar_cursosResponse" type="tns:listar_cursosResponse" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="listar_cursos">
+    <wsdl:part name="listar_cursos" element="tns:listar_cursos" />
+  </wsdl:message>
+  <wsdl:message name="listar_cursosResponse">
+    <wsdl:part name="listar_cursosResponse" element="tns:listar_cursosResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultar_curso">
+    <wsdl:part name="consultar_curso" element="tns:consultar_curso" />
+  </wsdl:message>
+  <wsdl:message name="consultar_cursoResponse">
+    <wsdl:part name="consultar_cursoResponse" element="tns:consultar_cursoResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscar_por_categoria">
+    <wsdl:part name="buscar_por_categoria" element="tns:buscar_por_categoria" />
+  </wsdl:message>
+  <wsdl:message name="buscar_por_categoriaResponse">
+    <wsdl:part name="buscar_por_categoriaResponse" element="tns:buscar_por_categoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="listar_categorias">
+    <wsdl:part name="listar_categorias" element="tns:listar_categorias" />
+  </wsdl:message>
+  <wsdl:message name="listar_categoriasResponse">
+    <wsdl:part name="listar_categoriasResponse" element="tns:listar_categoriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="cadastrar_categoria">
+    <wsdl:part name="cadastrar_categoria" element="tns:cadastrar_categoria" />
+  </wsdl:message>
+  <wsdl:message name="cadastrar_categoriaResponse">
+    <wsdl:part name="cadastrar_categoriaResponse" element="tns:cadastrar_categoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="cadastrar_curso">
+    <wsdl:part name="cadastrar_curso" element="tns:cadastrar_curso" />
+  </wsdl:message>
+  <wsdl:message name="cadastrar_cursoResponse">
+    <wsdl:part name="cadastrar_cursoResponse" element="tns:cadastrar_cursoResponse" />
+  </wsdl:message>
+  <wsdl:message name="criar_administrador">
+    <wsdl:part name="criar_administrador" element="tns:criar_administrador" />
+  </wsdl:message>
+  <wsdl:message name="criar_administradorResponse">
+    <wsdl:part name="criar_administradorResponse" element="tns:criar_administradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="login">
+    <wsdl:part name="login" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="loginResponse">
+    <wsdl:part name="loginResponse" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="validar_token">
+    <wsdl:part name="validar_token" element="tns:validar_token" />
+  </wsdl:message>
+  <wsdl:message name="validar_tokenResponse">
+    <wsdl:part name="validar_tokenResponse" element="tns:validar_tokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="logout">
+    <wsdl:part name="logout" element="tns:logout" />
+  </wsdl:message>
+  <wsdl:message name="logoutResponse">
+    <wsdl:part name="logoutResponse" element="tns:logoutResponse" />
+  </wsdl:message>
+  <wsdl:service name="CatalogoCursosService">
+    <wsdl:port name="Application" binding="tns:Application">
+      <ns2:address location="http://127.0.0.1:8000/" />
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:portType name="Application">
+    <wsdl:operation name="listar_cursos" parameterOrder="listar_cursos">
+      <wsdl:input name="listar_cursos" message="tns:listar_cursos" />
+      <wsdl:output name="listar_cursosResponse" message="tns:listar_cursosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="consultar_curso" parameterOrder="consultar_curso">
+      <wsdl:input name="consultar_curso" message="tns:consultar_curso" />
+      <wsdl:output name="consultar_cursoResponse" message="tns:consultar_cursoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="buscar_por_categoria" parameterOrder="buscar_por_categoria">
+      <wsdl:input name="buscar_por_categoria" message="tns:buscar_por_categoria" />
+      <wsdl:output name="buscar_por_categoriaResponse" message="tns:buscar_por_categoriaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listar_categorias" parameterOrder="listar_categorias">
+      <wsdl:input name="listar_categorias" message="tns:listar_categorias" />
+      <wsdl:output name="listar_categoriasResponse" message="tns:listar_categoriasResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cadastrar_categoria" parameterOrder="cadastrar_categoria">
+      <wsdl:input name="cadastrar_categoria" message="tns:cadastrar_categoria" />
+      <wsdl:output name="cadastrar_categoriaResponse" message="tns:cadastrar_categoriaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cadastrar_curso" parameterOrder="cadastrar_curso">
+      <wsdl:input name="cadastrar_curso" message="tns:cadastrar_curso" />
+      <wsdl:output name="cadastrar_cursoResponse" message="tns:cadastrar_cursoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="criar_administrador" parameterOrder="criar_administrador">
+      <wsdl:input name="criar_administrador" message="tns:criar_administrador" />
+      <wsdl:output name="criar_administradorResponse" message="tns:criar_administradorResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="login" parameterOrder="login">
+      <wsdl:input name="login" message="tns:login" />
+      <wsdl:output name="loginResponse" message="tns:loginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="validar_token" parameterOrder="validar_token">
+      <wsdl:input name="validar_token" message="tns:validar_token" />
+      <wsdl:output name="validar_tokenResponse" message="tns:validar_tokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="logout" parameterOrder="logout">
+      <wsdl:input name="logout" message="tns:logout" />
+      <wsdl:output name="logoutResponse" message="tns:logoutResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Application" type="tns:Application">
+    <ns2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="listar_cursos">
+      <ns2:operation soapAction="listar_cursos" style="document" />
+      <wsdl:input name="listar_cursos">
+        <ns2:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="listar_cursosResponse">
+        <ns2:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultar_curso">
+      <ns2:operation soapAction="consultar_curso" style="document" />
+      <wsdl:input name="consultar_curso">
+        <ns2:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="consultar_cursoResponse">
+        <ns2:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscar_por_categoria">
+      <ns2:operation soapAction="buscar_por_categoria" style="document" />
+      <wsdl:input name="buscar_por_categoria">
+        <ns2:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="buscar_por_categoriaResponse">
+        <ns2:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_categorias">
+      <ns2:operation soapAction="listar_categorias" style="document" />
+      <wsdl:input name="listar_categorias">
+        <ns2:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="listar_categoriasResponse">
+        <ns2:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastrar_categoria">
+      <ns2:operation soapAction="cadastrar_categoria" style="document" />
+      <wsdl:input name="cadastrar_categoria">
+        <ns2:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cadastrar_categoriaResponse">
+        <ns2:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastrar_curso">
+      <ns2:operation soapAction="cadastrar_curso" style="document" />
+      <wsdl:input name="cadastrar_curso">
+        <ns2:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cadastrar_cursoResponse">
+        <ns2:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="criar_administrador">
+      <ns2:operation soapAction="criar_administrador" style="document" />
+      <wsdl:input name="criar_administrador">
+        <ns2:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="criar_administradorResponse">
+        <ns2:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <ns2:operation soapAction="login" style="document" />
+      <wsdl:input name="login">
+        <ns2:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="loginResponse">
+        <ns2:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validar_token">
+      <ns2:operation soapAction="validar_token" style="document" />
+      <wsdl:input name="validar_token">
+        <ns2:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="validar_tokenResponse">
+        <ns2:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <ns2:operation soapAction="logout" style="document" />
+      <wsdl:input name="logout">
+        <ns2:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="logoutResponse">
+        <ns2:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

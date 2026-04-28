@@ -1,0 +1,9 @@
+﻿<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://exemplo.com/catalogocursos">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cat:login>
+         <cat:usuario>wesllen</cat:usuario>
+         <cat:senha>senha123</cat:senha>
+      </cat:login>
+   </soapenv:Body>
+</soapenv:Envelope>

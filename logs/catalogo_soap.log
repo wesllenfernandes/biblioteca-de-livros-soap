@@ -1,0 +1,537 @@
+2026-04-27 14:04:02,543 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:04:22,068 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:04:22,118 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:04:22,119 [INFO] Press CTRL+C to quit
+2026-04-27 14:04:48,609 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:04:48,657 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:04:48,657 [INFO] Press CTRL+C to quit
+2026-04-27 14:04:59,276 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:04:59,324 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:04:59,324 [INFO] Press CTRL+C to quit
+2026-04-27 14:05:43,918 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:05:44,003 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:05:44,003 [INFO] Press CTRL+C to quit
+2026-04-27 14:06:01,347 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:06:01,396 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:06:01,396 [INFO] Press CTRL+C to quit
+2026-04-27 14:06:34,432 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:06:40,261 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:06:40,341 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:06:40,341 [INFO] Press CTRL+C to quit
+2026-04-27 14:06:41,107 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:06:41,159 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:06:41,160 [INFO] Press CTRL+C to quit
+2026-04-27 14:07:41,459 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:07:41,511 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:07:41,511 [INFO] Press CTRL+C to quit
+2026-04-27 14:07:58,455 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:07:58,507 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:07:58,508 [INFO] Press CTRL+C to quit
+2026-04-27 14:08:10,679 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:08:40,615 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:08:40,667 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:08:40,667 [INFO] Press CTRL+C to quit
+2026-04-27 14:09:40,471 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:09:47,923 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:09:47,976 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:09:47,976 [INFO] Press CTRL+C to quit
+2026-04-27 14:09:58,108 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:09:58,161 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:09:58,161 [INFO] Press CTRL+C to quit
+2026-04-27 14:10:21,968 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:10:22,020 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:10:22,021 [INFO] Press CTRL+C to quit
+2026-04-27 14:18:56,071 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 14:18:56,132 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 14:18:56,132 [INFO] Press CTRL+C to quit
+2026-04-27 14:18:59,570 [INFO] 127.0.0.1 - - [27/Apr/2026 14:18:59] "GET /?wsdl HTTP/1.1" 200 -
+2026-04-27 14:18:59,647 [INFO] 127.0.0.1 - - [27/Apr/2026 14:18:59] "GET /favicon.ico HTTP/1.1" 405 -
+2026-04-27 17:35:07,179 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 17:35:07,228 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 17:35:07,229 [INFO] Press CTRL+C to quit
+2026-04-27 17:40:02,477 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 17:40:02,518 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 17:40:02,518 [INFO] Press CTRL+C to quit
+2026-04-27 17:40:10,381 [INFO] 127.0.0.1 - - [27/Apr/2026 17:40:10] "GET / HTTP/1.1" 405 -
+2026-04-27 17:40:22,214 [INFO] 127.0.0.1 - - [27/Apr/2026 17:40:22] "GET / HTTP/1.1" 405 -
+2026-04-27 17:42:45,738 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 17:42:45,780 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 17:42:45,781 [INFO] Press CTRL+C to quit
+2026-04-27 17:45:54,126 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 17:45:54,133 [INFO] 127.0.0.1 - - [27/Apr/2026 17:45:54] "POST / HTTP/1.1" 200 -
+2026-04-27 17:47:20,550 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 17:47:20,556 [INFO] 127.0.0.1 - - [27/Apr/2026 17:47:20] "POST / HTTP/1.1" 200 -
+2026-04-27 17:49:02,683 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 17:49:02,693 [INFO] 127.0.0.1 - - [27/Apr/2026 17:49:02] "POST / HTTP/1.1" 200 -
+2026-04-27 17:51:00,407 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 17:51:00,417 [INFO] 127.0.0.1 - - [27/Apr/2026 17:51:00] "POST / HTTP/1.1" 200 -
+2026-04-27 17:51:25,985 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 17:51:25,992 [INFO] 127.0.0.1 - - [27/Apr/2026 17:51:25] "POST / HTTP/1.1" 200 -
+2026-04-27 17:51:25,993 [INFO] 127.0.0.1 - - [27/Apr/2026 17:51:25] "GET / HTTP/1.1" 405 -
+2026-04-27 17:52:18,815 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 17:52:18,821 [INFO] 127.0.0.1 - - [27/Apr/2026 17:52:18] "POST / HTTP/1.1" 200 -
+2026-04-27 17:53:27,317 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 17:53:27,325 [INFO] 127.0.0.1 - - [27/Apr/2026 17:53:27] "POST / HTTP/1.1" 200 -
+2026-04-27 17:53:27,330 [INFO] 127.0.0.1 - - [27/Apr/2026 17:53:27] "GET /?wsdl HTTP/1.1" 200 -
+2026-04-27 17:55:06,933 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 17:55:06,977 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 17:55:06,977 [INFO] Press CTRL+C to quit
+2026-04-27 17:56:10,163 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 17:56:10,171 [INFO] 127.0.0.1 - - [27/Apr/2026 17:56:10] "POST / HTTP/1.1" 200 -
+2026-04-27 17:58:19,273 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 17:58:19,278 [INFO] 127.0.0.1 - - [27/Apr/2026 17:58:19] "POST / HTTP/1.1" 200 -
+2026-04-27 18:00:07,230 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 18:00:07,273 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 18:00:07,274 [INFO] Press CTRL+C to quit
+2026-04-27 18:00:37,555 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 18:00:37,564 [INFO] 127.0.0.1 - - [27/Apr/2026 18:00:37] "POST / HTTP/1.1" 200 -
+2026-04-27 18:00:49,278 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 18:00:49,557 [INFO] [login] ip=desconhecido login realizado usuario=wesllen
+2026-04-27 18:02:38,775 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 18:02:38,781 [INFO] 127.0.0.1 - - [27/Apr/2026 18:02:38] "POST / HTTP/1.1" 200 -
+2026-04-27 18:04:18,572 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 18:04:18,616 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 18:04:18,617 [INFO] Press CTRL+C to quit
+2026-04-27 18:07:26,618 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 18:07:26,690 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 18:07:26,691 [INFO] Press CTRL+C to quit
+2026-04-27 18:11:22,530 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 18:11:22,573 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 18:11:22,573 [INFO] Press CTRL+C to quit
+2026-04-27 18:14:25,301 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 18:14:25,309 [INFO] 127.0.0.1 - - [27/Apr/2026 18:14:25] "POST / HTTP/1.1" 200 -
+2026-04-27 18:14:31,937 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 18:14:31,960 [INFO] 127.0.0.1 - - [27/Apr/2026 18:14:31] "POST / HTTP/1.1" 200 -
+2026-04-27 18:14:59,723 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 18:14:59,776 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 18:14:59,776 [INFO] Press CTRL+C to quit
+2026-04-27 18:15:04,624 [INFO] 127.0.0.1 - - [27/Apr/2026 18:15:04] "GET /?wsdl HTTP/1.1" 200 -
+2026-04-27 18:15:04,700 [INFO] 127.0.0.1 - - [27/Apr/2026 18:15:04] "GET /favicon.ico HTTP/1.1" 405 -
+2026-04-27 18:16:42,153 [INFO] 127.0.0.1 - - [27/Apr/2026 18:16:42] "GET /?wsdl HTTP/1.1" 200 -
+2026-04-27 18:16:42,154 [INFO] 127.0.0.1 - - [27/Apr/2026 18:16:42] "GET /?wsdl HTTP/1.1" 200 -
+2026-04-27 18:16:42,155 [INFO] 127.0.0.1 - - [27/Apr/2026 18:16:42] "GET /?wsdl HTTP/1.1" 200 -
+2026-04-27 21:16:50,948 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 21:16:51,012 [INFO] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.0.72:8000
+2026-04-27 21:16:51,013 [INFO] Press CTRL+C to quit
+2026-04-27 21:20:13,211 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 21:20:13,223 [INFO] 127.0.0.1 - - [27/Apr/2026 21:20:13] "POST / HTTP/1.1" 200 -
+2026-04-27 21:20:13,229 [INFO] 127.0.0.1 - - [27/Apr/2026 21:20:13] "GET /?wsdl HTTP/1.1" 200 -
+2026-04-27 21:20:13,230 [INFO] 127.0.0.1 - - [27/Apr/2026 21:20:13] "GET /?wsdl HTTP/1.1" 200 -
+2026-04-27 21:23:47,094 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 21:23:47,100 [INFO] 127.0.0.1 - - [27/Apr/2026 21:23:47] "POST / HTTP/1.1" 200 -
+2026-04-27 21:23:47,101 [INFO] 127.0.0.1 - - [27/Apr/2026 21:23:47] "GET /?wsdl HTTP/1.1" 200 -
+2026-04-27 21:23:47,102 [INFO] 127.0.0.1 - - [27/Apr/2026 21:23:47] "GET /?wsdl HTTP/1.1" 200 -
+2026-04-27 21:23:47,105 [INFO] 127.0.0.1 - - [27/Apr/2026 21:23:47] "GET /?wsdl HTTP/1.1" 200 -
+2026-04-27 21:23:47,460 [INFO] 127.0.0.1 - - [27/Apr/2026 21:23:47] "GET /favicon.ico HTTP/1.1" 405 -
+2026-04-27 21:24:43,328 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 21:24:43,445 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 21:24:43,718 [INFO] [login] ip=desconhecido login realizado usuario=admin
+2026-04-27 21:25:06,799 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 21:25:29,259 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 21:25:39,228 [INFO] 127.0.0.1 - - [27/Apr/2026 21:25:39] "GET /?wsdl HTTP/1.1" 200 -
+2026-04-27 21:25:39,229 [INFO] 127.0.0.1 - - [27/Apr/2026 21:25:39] "GET / HTTP/1.1" 405 -
+2026-04-27 21:25:57,756 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 21:26:12,985 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 21:29:30,928 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 21:31:13,814 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 21:31:40,571 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 21:32:37,347 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 21:32:37,601 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 21:32:44,737 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 21:32:46,615 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 21:38:28,988 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 21:38:29,011 [INFO] [cadastrar_categoria] ip=desconhecido autenticado via middleware usuario=wesllen
+2026-04-27 21:38:29,016 [INFO] [cadastrar_categoria] ip=desconhecido categoria criada id=15
+2026-04-27 21:43:23,336 [INFO] [cadastrar_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-27 21:43:23,339 [ERROR] [cadastrar_categoria] ip=127.0.0.1 falha ao criar categoria nome=Desenvolvimento Web: UNIQUE constraint failed: categorias.nome
+2026-04-27 21:43:23,339 [ERROR] Fault(Client.Data: 'Categoria ja cadastrada.')
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 574, in <module>
+    from waitress import serve
+ModuleNotFoundError: No module named 'waitress'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 263, in cadastrar_categoria
+    cursor.execute(
+sqlite3.IntegrityError: UNIQUE constraint failed: categorias.nome
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 173, in process_request
+    ctx.out_object = self.call_wrapper(ctx)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 242, in call_wrapper
+    return ctx.descriptor.service_class.call_wrapper(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\service.py", line 194, in call_wrapper
+    return ctx.function(*args)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 279, in cadastrar_categoria
+    raise Fault(faultcode="Client.Data", faultstring="Categoria ja cadastrada.") from exc
+spyne.model.fault.Fault: Fault(Client.Data: 'Categoria ja cadastrada.')
+2026-04-27 21:43:46,739 [INFO] [cadastrar_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-27 21:43:46,740 [ERROR] [cadastrar_categoria] ip=127.0.0.1 falha ao criar categoria nome=Desenvolvimento Web: UNIQUE constraint failed: categorias.nome
+2026-04-27 21:43:46,740 [ERROR] Fault(Client.Data: 'Categoria ja cadastrada.')
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 574, in <module>
+    from waitress import serve
+ModuleNotFoundError: No module named 'waitress'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 263, in cadastrar_categoria
+    cursor.execute(
+sqlite3.IntegrityError: UNIQUE constraint failed: categorias.nome
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 173, in process_request
+    ctx.out_object = self.call_wrapper(ctx)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 242, in call_wrapper
+    return ctx.descriptor.service_class.call_wrapper(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\service.py", line 194, in call_wrapper
+    return ctx.function(*args)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 279, in cadastrar_categoria
+    raise Fault(faultcode="Client.Data", faultstring="Categoria ja cadastrada.") from exc
+spyne.model.fault.Fault: Fault(Client.Data: 'Categoria ja cadastrada.')
+2026-04-27 21:43:47,625 [INFO] [cadastrar_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-27 21:43:47,626 [ERROR] [cadastrar_categoria] ip=127.0.0.1 falha ao criar categoria nome=Desenvolvimento Web: UNIQUE constraint failed: categorias.nome
+2026-04-27 21:43:47,626 [ERROR] Fault(Client.Data: 'Categoria ja cadastrada.')
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 574, in <module>
+    from waitress import serve
+ModuleNotFoundError: No module named 'waitress'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 263, in cadastrar_categoria
+    cursor.execute(
+sqlite3.IntegrityError: UNIQUE constraint failed: categorias.nome
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 173, in process_request
+    ctx.out_object = self.call_wrapper(ctx)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 242, in call_wrapper
+    return ctx.descriptor.service_class.call_wrapper(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\service.py", line 194, in call_wrapper
+    return ctx.function(*args)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 279, in cadastrar_categoria
+    raise Fault(faultcode="Client.Data", faultstring="Categoria ja cadastrada.") from exc
+spyne.model.fault.Fault: Fault(Client.Data: 'Categoria ja cadastrada.')
+2026-04-27 21:44:11,946 [INFO] [listar_cursos] ip=127.0.0.1 retornou 4 cursos
+2026-04-27 21:45:56,941 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 21:46:09,468 [INFO] [cadastrar_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-27 21:46:09,472 [INFO] [cadastrar_categoria] ip=127.0.0.1 categoria criada id=16
+2026-04-27 21:47:36,924 [WARNING] [cadastrar_curso] ip=127.0.0.1 falha JWT: Token JWT invalido.
+2026-04-27 21:47:46,105 [WARNING] [cadastrar_curso] ip=127.0.0.1 falha JWT: Token JWT invalido.
+2026-04-27 21:47:57,752 [INFO] [cadastrar_curso] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-27 21:47:57,758 [INFO] [cadastrar_curso] ip=127.0.0.1 curso criado id=5
+2026-04-27 21:49:55,149 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 21:50:30,182 [WARNING] [cadastrar_curso] ip=127.0.0.1 falha JWT: Token JWT invalido.
+2026-04-27 21:51:59,408 [WARNING] [login] ip=127.0.0.1 falha de autenticacao usuario=wesllen
+2026-04-27 21:51:59,408 [ERROR] Fault(Client.Auth: 'Usuario ou senha invalidos.')
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 574, in <module>
+    from waitress import serve
+ModuleNotFoundError: No module named 'waitress'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 173, in process_request
+    ctx.out_object = self.call_wrapper(ctx)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 242, in call_wrapper
+    return ctx.descriptor.service_class.call_wrapper(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\service.py", line 194, in call_wrapper
+    return ctx.function(*args)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 467, in login
+    raise Fault(faultcode="Client.Auth", faultstring="Usuario ou senha invalidos.")
+spyne.model.fault.Fault: Fault(Client.Auth: 'Usuario ou senha invalidos.')
+2026-04-27 21:52:17,375 [WARNING] [login] ip=127.0.0.1 falha de autenticacao usuario=wesllen
+2026-04-27 21:52:17,375 [ERROR] Fault(Client.Auth: 'Usuario ou senha invalidos.')
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 574, in <module>
+    from waitress import serve
+ModuleNotFoundError: No module named 'waitress'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 173, in process_request
+    ctx.out_object = self.call_wrapper(ctx)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 242, in call_wrapper
+    return ctx.descriptor.service_class.call_wrapper(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\service.py", line 194, in call_wrapper
+    return ctx.function(*args)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 467, in login
+    raise Fault(faultcode="Client.Auth", faultstring="Usuario ou senha invalidos.")
+spyne.model.fault.Fault: Fault(Client.Auth: 'Usuario ou senha invalidos.')
+2026-04-27 21:52:20,973 [WARNING] [login] ip=127.0.0.1 falha de autenticacao usuario=wesllen
+2026-04-27 21:52:20,974 [ERROR] Fault(Client.Auth: 'Usuario ou senha invalidos.')
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 574, in <module>
+    from waitress import serve
+ModuleNotFoundError: No module named 'waitress'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 173, in process_request
+    ctx.out_object = self.call_wrapper(ctx)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 242, in call_wrapper
+    return ctx.descriptor.service_class.call_wrapper(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\service.py", line 194, in call_wrapper
+    return ctx.function(*args)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 467, in login
+    raise Fault(faultcode="Client.Auth", faultstring="Usuario ou senha invalidos.")
+spyne.model.fault.Fault: Fault(Client.Auth: 'Usuario ou senha invalidos.')
+2026-04-27 21:53:33,668 [WARNING] [login] ip=127.0.0.1 falha de autenticacao usuario=wesllen
+2026-04-27 21:53:33,668 [ERROR] Fault(Client.Auth: 'Usuario ou senha invalidos.')
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 574, in <module>
+    from waitress import serve
+ModuleNotFoundError: No module named 'waitress'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 173, in process_request
+    ctx.out_object = self.call_wrapper(ctx)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 242, in call_wrapper
+    return ctx.descriptor.service_class.call_wrapper(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\service.py", line 194, in call_wrapper
+    return ctx.function(*args)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 467, in login
+    raise Fault(faultcode="Client.Auth", faultstring="Usuario ou senha invalidos.")
+spyne.model.fault.Fault: Fault(Client.Auth: 'Usuario ou senha invalidos.')
+2026-04-27 21:53:56,393 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 22:00:26,635 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 22:00:26,656 [INFO] [cadastrar_categoria] ip=desconhecido autenticado via middleware usuario=wesllen
+2026-04-27 22:00:26,661 [INFO] [cadastrar_categoria] ip=desconhecido categoria criada id=17
+2026-04-27 22:29:15,586 [INFO] [cadastrar_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-27 22:29:15,589 [ERROR] [cadastrar_categoria] ip=127.0.0.1 falha ao criar categoria nome=QA Automatizado: UNIQUE constraint failed: categorias.nome
+2026-04-27 22:29:15,589 [ERROR] Fault(Client.Data: 'Categoria ja cadastrada.')
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 574, in <module>
+ModuleNotFoundError: No module named 'waitress'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 263, in cadastrar_categoria
+    require_authentication(ctx)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: categorias.nome
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 173, in process_request
+    ctx.out_object = self.call_wrapper(ctx)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 242, in call_wrapper
+    return ctx.descriptor.service_class.call_wrapper(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\service.py", line 194, in call_wrapper
+    return ctx.function(*args)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 279, in cadastrar_categoria
+    return categoria
+spyne.model.fault.Fault: Fault(Client.Data: 'Categoria ja cadastrada.')
+2026-04-27 22:31:45,817 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 22:32:21,290 [WARNING] [cadastrar_categoria] ip=127.0.0.1 cabecalho SOAP ausente
+2026-04-27 22:34:01,825 [WARNING] [cadastrar_categoria] ip=127.0.0.1 cabecalho SOAP ausente
+2026-04-27 22:34:41,658 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 22:34:46,030 [WARNING] [cadastrar_categoria] ip=127.0.0.1 falha JWT: Token JWT invalido.
+2026-04-27 22:34:47,378 [WARNING] [cadastrar_categoria] ip=127.0.0.1 falha JWT: Token JWT invalido.
+2026-04-27 22:34:48,122 [WARNING] [cadastrar_categoria] ip=127.0.0.1 falha JWT: Token JWT invalido.
+2026-04-27 23:12:38,293 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 23:12:51,966 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 23:14:24,409 [ERROR] XMLSyntaxError('Namespace prefix wsse on Security is not defined, line 3, column 22') in string '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://exemplo.com/catalogocursos">\r\n   <soapenv:Header>\r\n       <wsse:Security>\r\n         <wsse:BinarySecurityToken>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwidXN1YXJpbyI6Indlc2xsZW4iLCJub21lIjoid2VzbGxlbiBwYWl2YSIsImV4cCI6MTc3NzM0OTU3MSwiaWF0IjoxNzc3MzQyMzcxfQ._aKBwVgVsRoVdUGPtg0NFp1L4uQyt11UIBIeaFTbLwo</wsse:BinarySecurityToken>\r\n      </wsse:Security>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <cat:cadastrar_categoria>\r\n         <cat:nome>logatimo</cat:nome>\r\n         <cat:descricao> testes </cat:descricao>\r\n      </cat:cadastrar_categoria>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n\r\n'
+2026-04-27 23:15:33,000 [INFO] [cadastrar_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-27 23:15:33,004 [INFO] [cadastrar_categoria] ip=127.0.0.1 categoria criada id=18
+2026-04-27 23:17:33,442 [INFO] [cadastrar_curso] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-27 23:17:33,451 [INFO] [cadastrar_curso] ip=127.0.0.1 curso criado id=6
+2026-04-27 23:20:20,500 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 23:20:20,525 [INFO] [listar_cursos] ip=desconhecido retornou 6 cursos
+2026-04-27 23:20:44,835 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-27 23:21:19,066 [INFO] [listar_cursos] ip=127.0.0.1 retornou 6 cursos
+2026-04-27 23:23:28,717 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-27 23:23:41,794 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-27 23:23:41,796 [WARNING] [remover_categoria] ip=127.0.0.1 categoria_id=1 possui cursos vinculados
+2026-04-27 23:23:41,796 [ERROR] Fault(Client.Data: 'Nao e possivel remover categoria com cursos vinculados.')
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 581, in <module>
+    from waitress import serve
+ModuleNotFoundError: No module named 'waitress'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 173, in process_request
+    ctx.out_object = self.call_wrapper(ctx)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 242, in call_wrapper
+    return ctx.descriptor.service_class.call_wrapper(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\service.py", line 194, in call_wrapper
+    return ctx.function(*args)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 326, in remover_categoria
+    raise Fault(
+spyne.model.fault.Fault: Fault(Client.Data: 'Nao e possivel remover categoria com cursos vinculados.')
+2026-04-27 23:24:34,066 [INFO] [remover_curso] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-27 23:24:34,071 [INFO] [remover_curso] ip=127.0.0.1 curso removido id=1
+2026-04-27 23:25:14,435 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-27 23:25:14,441 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=18
+2026-04-28 13:33:38,269 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-28 13:33:53,317 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-28 13:34:35,900 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:34:35,906 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=17
+2026-04-28 13:34:47,720 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:34:47,726 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=16
+2026-04-28 13:34:55,984 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:34:55,989 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=15
+2026-04-28 13:35:03,298 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:35:03,305 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=14
+2026-04-28 13:35:07,890 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:35:07,895 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=13
+2026-04-28 13:35:13,239 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:35:13,245 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=12
+2026-04-28 13:35:17,876 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:35:17,883 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=11
+2026-04-28 13:35:23,132 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:35:23,139 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=10
+2026-04-28 13:35:29,287 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:35:29,294 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=9
+2026-04-28 13:35:32,901 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:35:32,908 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=8
+2026-04-28 13:35:36,384 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:35:36,390 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=7
+2026-04-28 13:35:41,259 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:35:41,266 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=6
+2026-04-28 13:35:47,790 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:35:47,797 [INFO] [remover_categoria] ip=127.0.0.1 categoria removida id=5
+2026-04-28 13:35:52,952 [INFO] [remover_categoria] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:35:52,955 [WARNING] [remover_categoria] ip=127.0.0.1 categoria_id=4 possui cursos vinculados
+2026-04-28 13:35:52,955 [ERROR] Fault(Client.Data: 'Nao e possivel remover categoria com cursos vinculados.')
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 581, in <module>
+    from waitress import serve
+ModuleNotFoundError: No module named 'waitress'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 173, in process_request
+    ctx.out_object = self.call_wrapper(ctx)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 242, in call_wrapper
+    return ctx.descriptor.service_class.call_wrapper(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\service.py", line 194, in call_wrapper
+    return ctx.function(*args)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 326, in remover_categoria
+    raise Fault(
+spyne.model.fault.Fault: Fault(Client.Data: 'Nao e possivel remover categoria com cursos vinculados.')
+2026-04-28 13:36:21,261 [INFO] [remover_curso] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 13:36:21,268 [INFO] [remover_curso] ip=127.0.0.1 curso removido id=6

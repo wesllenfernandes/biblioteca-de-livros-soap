@@ -1,3 +1,6 @@
 spyne==2.14.0
 werkzeug==3.0.1
 bcrypt==4.1.2
+PyJWT==2.10.1
+lxml>=6.0.1
+waitress==3.0.0

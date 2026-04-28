@@ -1,246 +1,128 @@
+# Catalogo de Cursos SOAP
 
-# Catálogo de Cursos - Web Service SOAP
+Servico SOAP para catalogo de cursos com persistencia em SQLite, contrato WSDL/XSD, autenticacao JWT em header SOAP com formato WS-Security, CRUD basico e logs de execucao.
 
 ## Requisitos
 
-- Python 3.8+
-- VS Code (opcional)
-- Biblioteca bcrypt (para hash de senhas)
+- Python 3.10+
+- Dependencias de `requirements.txt`
 
-## Instalação
+Observacao:
 
-1. Crie um ambiente virtual (opcional):
-   python -m venv venv
+- Para resposta HTTP mais estavel no Windows, instale todas as dependencias, incluindo `waitress`.
 
-2. Ative o ambiente:
-   Windows: venv\Scripts\activate
-   Mac/Linux: source venv/bin/activate
+## Instalcao e execucao
 
-3. Instale as dependências:
-   pip install -r requirements.txt
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+python init_db.py
+python app.py
+```
 
-## Configuração do Banco de Dados
+Endpoints locais:
 
-Este projeto utiliza SQLite como banco de dados para persistência dos cursos.
+- Servico SOAP: `http://127.0.0.1:8010`
+- WSDL: `http://127.0.0.1:8010/?wsdl`
 
-1. **Inicializar o banco de dados** (cria o arquivo `cursos.db` e insere dados iniciais):
-   ```bash
-   python init_db.py
-   ```
+## Requisitos da atividade atendidos
 
-   O script criará automaticamente:
-   - O arquivo de banco de dados `cursos.db`
-   - A tabela `cursos` com as colunas: id, nome, categoria, carga_horaria, preco
-   - 3 cursos de exemplo
+### 1. Contrato formal
 
-    2. **Estrutura do banco de dados**:
-    ```sql
-    CREATE TABLE administradores (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        usuario TEXT NOT NULL UNIQUE,
-        senha TEXT NOT NULL,
-        nome TEXT NOT NULL,
-        criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
-    
-    CREATE TABLE categorias (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL UNIQUE,
-        descricao TEXT
-    )
-    
-    CREATE TABLE cursos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL,
-        categoria_id INTEGER NOT NULL,
-        carga_horaria INTEGER NOT NULL,
-        preco INTEGER NOT NULL,
-        FOREIGN KEY (categoria_id) REFERENCES categorias(id)
-    )
-    ```
+- O servico e integralmente SOAP 1.1 com WSDL gerado em `/?wsdl`.
+- Os tipos sao expostos em XML Schema dentro do contrato.
+- O script `export_contracts.py` salva evidencias locais em `docs/contratos/`.
 
-## Executando o Serviço
+### 2. CRUD com banco de dados
 
-1. Certifique-se de que o banco de dados foi inicializado:
-   ```bash
-   python init_db.py
-   ```
+Operacoes publicas:
 
-2. Inicie o servidor:
-   ```bash
-   python app.py
-   ```
+- `listar_cursos`
+- `consultar_curso`
+- `buscar_por_categoria`
+- `listar_categorias`
+- `consultar_categoria`
+- `login`
+- `criar_administrador`
 
-O serviço ficará disponível em:
-http://localhost:8000
+Operacoes protegidas por JWT em header SOAP:
 
-WSDL:
-http://localhost:8000/?wsdl
+- `cadastrar_categoria`
+- `atualizar_categoria`
+- `remover_categoria`
+- `cadastrar_curso`
+- `atualizar_curso`
+- `remover_curso`
+- `validar_token`
 
-## Operações Disponíveis
+### 3. Seguranca SOAP
 
-### Autenticação
-- **criar_administrador(usuario, senha, nome)** - Cria um novo administrador
-- **login(usuario, senha)** - Realiza login e retorna um token de autenticação
-- **validar_token(token)** - Valida se um token é válido
-- **logout(token)** - Invalida um token de autenticação
+- Autenticacao baseada em JWT.
+- Token enviado em header SOAP padrao `wsse:Security/wsse:BinarySecurityToken`.
+- Falhas de autenticacao retornam `SOAP Fault`.
+- Pelo menos uma operacao protegida: todas as operacoes de escrita exigem token.
 
-### Cursos
-- **listar_cursos()** - Retorna todos os cursos do banco de dados
-- **consultar_curso(curso_id)** - Consulta um curso específico pelo ID
-- **buscar_por_categoria(categoria)** - Busca cursos por categoria (case-insensitive)
-- **cadastrar_curso(nome, categoria_id, carga_horaria, preco)** - Cadastra um novo curso vinculado a uma categoria
+Header esperado:
 
-### Categorias
-- **listar_categorias()** - Retorna todas as categorias disponíveis
-- **cadastrar_categoria(nome, descricao)** - Cadastra uma nova categoria
-
-## Exemplos de Uso
-
-### Criar um novo administrador
 ```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://exemplo.com/catalogocursos">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <cat:criar_administrador>
-         <cat:usuario>joao</cat:usuario>
-         <cat:senha>senha123</cat:senha>
-         <cat:nome>João Silva</cat:nome>
-      </cat:criar_administrador>
-   </soapenv:Body>
-</soapenv:Envelope>
+<soapenv:Header>
+   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <wsse:BinarySecurityToken>JWT_OBTIDO_NO_LOGIN</wsse:BinarySecurityToken>
+   </wsse:Security>
+</soapenv:Header>
 ```
 
-### Login (obter token)
-```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://exemplo.com/catalogocursos">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <cat:login>
-         <cat:usuario>admin</cat:usuario>
-         <cat:senha>admin123</cat:senha>
-      </cat:login>
-   </soapenv:Body>
-</soapenv:Envelope>
+### 4. Monitoramento e logs
+
+- Logs em arquivo: `logs/catalogo_soap.log`
+- Registra chamadas relevantes, autenticacao, erros de negocio e tentativas invalidas.
+
+## Fluxo de teste no SoapUI
+
+1. Abrir o WSDL `http://127.0.0.1:8010/?wsdl`.
+2. Executar `login` com `admin` e `admin123`.
+3. Copiar o JWT retornado.
+4. Inserir o token no header SOAP.
+5. Testar CRUD de categoria e curso.
+6. Testar erros:
+   - sem header
+   - token invalido
+   - XML malformado
+   - categoria inexistente
+   - remocao de categoria com cursos vinculados
+
+Exemplos prontos: [docs/soapui-exemplos.md](/c:/Users/wesll/Downloads/SISTEMAS%20PARA%20INTERNET/ORIETADO%20A%20SERVI%C3%87OS/projeto%20orietado%20a%20servi%C3%A7o/catalogo_cursos_soap/docs/soapui-exemplos.md)
+
+## Exportar WSDL e XSD
+
+Com o servidor em execucao:
+
+```bash
+python export_contracts.py
 ```
 
-### Validar token
-```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://exemplo.com/catalogocursos">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <cat:validar_token>
-         <cat:token>seu_token_aqui</cat:token>
-      </cat:validar_token>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
+Arquivos gerados:
 
-### Logout
-```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://exemplo.com/catalogocursos">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <cat:logout>
-         <cat:token>seu_token_aqui</cat:token>
-      </cat:logout>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
+- `docs/contratos/catalogo_cursos.wsdl`
+- `docs/contratos/catalogo_cursos.xsd`
 
-### Cadastrar uma nova categoria
-```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://exemplo.com/catalogocursos">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <cat:cadastrar_categoria>
-         <cat:nome>Mobile</cat:nome>
-         <cat:descricao>Desenvolvimento de aplicativos móveis</cat:descricao>
-      </cat:cadastrar_categoria>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
+## Dados iniciais
 
-### Cadastrar um novo curso
-```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://exemplo.com/catalogocursos">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <cat:cadastrar_curso>
-         <cat:nome>React Native</cat:nome>
-         <cat:categoria_id>4</cat:categoria_id>
-         <cat:carga_horaria>45</cat:carga_horaria>
-         <cat:preco>400</cat:preco>
-      </cat:cadastrar_curso>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
+Administrador padrao:
 
-## Testando o Serviço
+- usuario: `admin`
+- senha: `admin123`
 
-Você pode testar usando:
-- **SoapUI** - Importe o WSDL: http://localhost:8000/?wsdl
-- **Postman** - Configure requisições SOAP usando o endpoint
-- **Navegador** - Acesse http://localhost:8000/?wsdl para ver a definição do serviço
+Categorias iniciais:
 
-## Dados Iniciais
+- Programacao
+- Web
+- Dados
 
-### Administrador
-O banco de dados é inicializado com 1 administrador padrão:
+## Observacoes para o relatorio
 
-- **Usuário:** admin
-- **Senha:** admin123
-- **Nome:** Administrador Padrão
-
-⚠️ **Importante:** Altere a senha do administrador padrão após o primeiro acesso.
-
-### Categorias
-O banco de dados é inicializado com 3 categorias de exemplo:
-
-1. Programação - Cursos de linguagens de programação
-2. Web - Desenvolvimento web front-end e back-end
-3. Dados - Banco de dados e análise de dados
-
-### Cursos
-O banco de dados é inicializado com 3 cursos vinculados às categorias:
-
-1. Python Básico (Categoria: Programação) - 40h - R$ 200
-2. Desenvolvimento Web (Categoria: Web) - 60h - R$ 350
-3. Banco de Dados (Categoria: Dados) - 50h - R$ 300
-
-## Gerenciando o Banco de Dados
-
-Você pode gerenciar o banco de dados diretamente usando ferramentas como:
-- **DB Browser for SQLite** - Interface gráfica gratuita
-- **sqlite3** (linha de comando):
-  ```bash
-  sqlite3 cursos.db
-  ```
-
-Exemplos de comandos SQL:
-```sql
--- Listar todos os administradores
-SELECT id, usuario, nome, criado_em FROM administradores;
-
--- Listar todas as categorias
-SELECT * FROM categorias;
-
--- Listar todos os cursos com nome da categoria
-SELECT c.id, c.nome, cat.nome as categoria, c.carga_horaria, c.preco
-FROM cursos c
-LEFT JOIN categorias cat ON c.categoria_id = cat.id;
-
--- Adicionar uma nova categoria
-INSERT INTO categorias (nome, descricao) 
-VALUES ('Mobile', 'Desenvolvimento de aplicativos móveis');
-
--- Adicionar um novo curso vinculado a uma categoria
-INSERT INTO cursos (nome, categoria_id, carga_horaria, preco) 
-VALUES ('React Native', 4, 45, 400);
-
--- Buscar cursos por categoria
-SELECT c.*, cat.nome as categoria_nome
-FROM cursos c
-LEFT JOIN categorias cat ON c.categoria_id = cat.id
-WHERE cat.nome = 'Programação';
-```
+- A seguranca adotada foi JWT em header SOAP com estrutura `wsse:Security`, por ser simples de demonstrar em ambiente academico, interoperavel com clientes heterogeneos e suficiente para proteger operacoes sensiveis sem abandonar o contrato SOAP.
+- A validacao estrutural das mensagens ocorre no protocolo SOAP com `validator="lxml"`, o que ajuda nos testes de XML malformado.
+- O WSDL e o XSD podem ser importados no SoapUI como evidencia formal do contrato.
+- Evidencias e checklist final da entrega estao em `docs/evidencias.md`.
