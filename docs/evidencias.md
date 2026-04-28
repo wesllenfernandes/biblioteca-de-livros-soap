@@ -1,144 +1,191 @@
-# Evidencias e Checklist da Entrega
+# Evidencias da Unidade 3
 
-Este arquivo consolida os requisitos da atividade, o que ja esta implementado no projeto e quais evidencias devem ser capturadas no SoapUI/Postman para a entrega final.
+Este documento consolida as evidencias tecnicas do servico SOAP `CatalogoCursosService`, cobrindo contrato formal, XML Schema, seguranca, testes, logs e itens que devem ser capturados manualmente no SoapUI/Postman e no navegador.
 
-## 1. Objetivo do Trabalho
+## 1. Evidencia do WSDL
 
-Atendido no projeto:
+- URL do WSDL: `http://127.0.0.1:8010/?wsdl`
+- Arquivo salvo no projeto: `docs/contratos/catalogo_cursos.wsdl`
+- Endpoint principal do servico: `http://127.0.0.1:8010`
 
-- Contratos formais bem definidos via WSDL/XSD.
-- Seguranca aplicada a servicos SOAP.
-- Testes de mensagens SOAP suportados pelo servico.
-- Monitoramento e registros de execucao por logs.
+O arquivo WSDL descreve o contrato SOAP 1.1 do servico, incluindo:
 
-## 2. Extensao do Servico Anterior
+- operacoes publicas e protegidas do catalogo de cursos;
+- mensagens de entrada e saida de cada operacao;
+- binding SOAP document/literal;
+- referencia ao arquivo XSD externo `catalogo_cursos.xsd` por meio de `xs:include`.
 
-Atendido no projeto:
+As operacoes visiveis no contrato incluem, entre outras:
 
-- Mesmo dominio de negocio: catalogo de cursos.
-- Operacoes do dominio preservadas e evoluidas com autenticacao, logs e validacao.
-- Arquitetura orientada a contratos mantida via SOAP, WSDL e XSD.
+- `login`
+- `listar_cursos`
+- `consultar_curso`
+- `buscar_por_categoria`
+- `listar_categorias`
+- `consultar_categoria`
+- `cadastrar_curso`
+- `atualizar_curso`
+- `remover_curso`
+- `cadastrar_categoria`
+- `atualizar_categoria`
+- `remover_categoria`
+- `validar_token`
 
-## 3. Requisito 4.1 Implementacao do Servico SOAP
+## 2. Evidencia do XSD
 
-Atendido no projeto:
+- Arquivo do schema: `docs/contratos/catalogo_cursos.xsd`
+- Namespace do schema: `http://exemplo.com/catalogocursos`
 
-- Servico integralmente baseado em SOAP 1.1.
-- Operacoes expostas via WSDL.
-- Tipos definidos em XML Schema.
-- Evolucao do servico sem alterar o dominio de negocio.
-- CRUD basico com SQLite para categorias e cursos.
+O XSD define os tipos XML utilizados pelo servico SOAP. Entre os principais tipos definidos estao:
 
-Arquivos de apoio:
+- `Curso`
+- `Categoria`
+- `Administrador`
+- `Token`
+- `ResultadoOperacao`
+- `SecurityHeader`
+- `LoginRequest`
+- `LoginResponse`
+- `CadastrarCursoRequest`
+- `CadastrarCursoResponse`
+- `AtualizarCursoRequest`
+- `AtualizarCursoResponse`
+- `RemoverCursoRequest`
+- `RemoverCursoResponse`
+- `ConsultarCursoRequest`
+- `ConsultarCursoResponse`
+- `ListarCursosResponse`
+- `ConsultarCategoriaRequest`
+- `ConsultarCategoriaResponse`
+- `CadastrarCategoriaRequest`
+- `AtualizarCategoriaRequest`
+- `RemoverCategoriaRequest`
 
-- WSDL:
-[catalogo_cursos.wsdl](/c:/Users/wesll/Downloads/SISTEMAS%20PARA%20INTERNET/ORIETADO%20A%20SERVI%C3%87OS/projeto%20orietado%20a%20servi%C3%A7o/catalogo_cursos_soap/docs/contratos/catalogo_cursos.wsdl)
-- XSD:
-[catalogo_cursos.xsd](/c:/Users/wesll/Downloads/SISTEMAS%20PARA%20INTERNET/ORIETADO%20A%20SERVI%C3%87OS/projeto%20orietado%20a%20servi%C3%A7o/catalogo_cursos_soap/docs/contratos/catalogo_cursos.xsd)
+Padronizacao aplicada no schema:
 
-## 4. Requisito 4.2 Documentacao do Servico
+- `id`, `curso_id`, `categoria_id`, `carga_horaria`: `xs:int`
+- `nome`, `descricao`, `usuario`, `senha`, `mensagem`, `token`: `xs:string`
+- `preco`: `xs:decimal`
+- `sucesso`: `xs:boolean`
 
-Atendido no projeto:
+O XSD foi mantido com o mesmo `targetNamespace` do WSDL, garantindo coerencia contratual.
 
-- Arquivo WSDL entregue.
-- Arquivo XSD entregue.
-- Link local do WSDL disponivel em `http://127.0.0.1:8010/?wsdl`.
-- Script de exportacao dos contratos em `export_contracts.py`.
+## 3. Evidencia de CRUD
 
-Evidencias recomendadas para anexar:
+O projeto implementa CRUD de cursos com persistencia em banco SQLite.
 
-- Print do WSDL aberto no navegador.
-- Print do WSDL importado no SoapUI.
-- Print das operacoes exibidas no SoapUI.
+Operacoes principais de CRUD de curso:
 
-## 5. Requisito 4.3 Seguranca em Servicos SOAP
+- `cadastrar_curso`
+- `listar_cursos`
+- `consultar_curso`
+- `atualizar_curso`
+- `remover_curso`
 
-Atendido no projeto:
+Operacoes auxiliares de categoria:
 
-- Seguranca via header SOAP compativel com WS-Security.
-- Header utilizado: `wsse:Security`.
-- Token utilizado: JWT em `wsse:BinarySecurityToken`.
-- Operacoes protegidas por autenticacao:
-  - `cadastrar_categoria`
-  - `atualizar_categoria`
-  - `remover_categoria`
-  - `cadastrar_curso`
-  - `atualizar_curso`
-  - `remover_curso`
-  - `validar_token`
+- `cadastrar_categoria`
+- `listar_categorias`
+- `consultar_categoria`
+- `atualizar_categoria`
+- `remover_categoria`
 
-Exemplo de header:
+As operacoes utilizam o banco SQLite local `cursos.db`, com acesso realizado pelo servico SOAP em `app.py`.
+
+## 4. Evidencia de seguranca
+
+O servico utiliza autenticacao JWT transportada em header SOAP no formato compativel com WS-Security.
+
+Estrutura esperada do header:
 
 ```xml
 <soapenv:Header>
-   <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
-      <wsse:BinarySecurityToken>JWT_OBTIDO_NO_LOGIN</wsse:BinarySecurityToken>
-   </wsse:Security>
+  <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <wsse:BinarySecurityToken>TOKEN_AQUI</wsse:BinarySecurityToken>
+  </wsse:Security>
 </soapenv:Header>
 ```
 
-Observacao para o relatorio:
+Comportamento esperado:
 
-- A implementacao utiliza header SOAP no formato `wsse:Security` para transporte de JWT. Nao inclui assinatura XML nem criptografia da mensagem.
+- operacoes publicas podem ser executadas sem token, como `login` e `listar_cursos`;
+- operacoes de escrita exigem token JWT valido;
+- ausencia de token gera `SOAP Fault`;
+- token invalido gera `SOAP Fault`;
+- token valido libera a execucao da operacao protegida.
 
-## 6. Requisito 4.4 Testes do Servico SOAP
+Operacoes protegidas por token:
 
-Atendido tecnicamente no projeto:
+- `cadastrar_categoria`
+- `atualizar_categoria`
+- `remover_categoria`
+- `cadastrar_curso`
+- `atualizar_curso`
+- `remover_curso`
+- `validar_token`
 
-- Testes funcionais das operacoes SOAP.
-- Validacao estrutural de XML com `Soap11(validator="lxml")`.
-- Testes de erro suportados pelo servico:
-  - XML malformado
-  - ausencia de header de seguranca
-  - token invalido
-  - token expirado
-  - erros de negocio
+## 5. Evidencia de testes
 
-Checklist minimo de evidencias para anexar:
+Testes funcionais registrados para o servico:
 
-1. `login` com sucesso.
-2. `listar_cursos` com sucesso.
-3. `cadastrar_categoria` com token valido.
-4. Requisicao sem `wsse:Security`.
-5. Requisicao com token invalido.
-6. XML malformado.
+- `login` com sucesso, retornando JWT;
+- `listar_cursos` sem token, com retorno valido;
+- `cadastrar_curso` com token valido;
+- `atualizar_curso` com token valido;
+- `remover_curso` com token valido;
+- requisicao sem token, retornando erro de autenticacao;
+- token invalido, retornando erro de autenticacao;
+- XML malformado, para validar comportamento do parser SOAP/XML.
 
-Ferramentas aceitas:
+Resumo dos cenarios:
 
-- SoapUI como principal.
-- Postman pode ser usado como apoio.
+- sucesso publico: `login`, `listar_cursos`;
+- sucesso protegido: `validar_token` e operacoes de escrita com JWT valido;
+- falha esperada: sem token, token invalido e XML malformado.
 
-## 7. Requisito 4.5 Monitoramento e Logs
+## 6. Evidencia de logs
 
-Atendido no projeto:
+- Arquivo de log: `logs/catalogo_soap.log`
 
-- Logs em arquivo: [catalogo_soap.log](/c:/Users/wesll/Downloads/SISTEMAS%20PARA%20INTERNET/ORIETADO%20A%20SERVI%C3%87OS/projeto%20orietado%20a%20servi%C3%A7o/catalogo_cursos_soap/logs/catalogo_soap.log)
-- Registro de chamadas, autenticacao e erros.
-- Eventos relevantes registrados durante execucao.
+O sistema registra eventos relevantes de execucao, incluindo:
 
-Trechos que podem ser usados como evidencia:
+- inicializacao do servico;
+- requisicoes ao endpoint SOAP;
+- acesso ao WSDL;
+- autenticacao com sucesso;
+- erros de autenticacao;
+- erros de negocio e erros de execucao.
 
-```text
-2026-04-27 21:53:56,393 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
-2026-04-27 22:00:26,656 [INFO] [cadastrar_categoria] ip=desconhecido autenticado via middleware usuario=wesllen
-2026-04-27 22:00:26,661 [INFO] [cadastrar_categoria] ip=desconhecido categoria criada id=17
-2026-04-27 21:52:17,375 [WARNING] [login] ip=127.0.0.1 falha de autenticacao usuario=wesllen
-```
+Tipos de evidencia presentes no log:
 
-Evidencias recomendadas para anexar:
+- chamada de `login` com sucesso;
+- falha de autenticacao;
+- chamada protegida autenticada via middleware;
+- acesso HTTP ao `/?wsdl`.
 
-- Print do terminal com o servidor registrando uma operacao com sucesso.
-- Print de um erro autenticacao ou token invalido.
-- Print do arquivo de log aberto com os registros.
+Esses registros ajudam a demonstrar monitoramento e rastreabilidade das operacoes do servico.
 
-## 8. Status Final
+## 7. Prints recomendados para anexar
 
-Status do projeto:
+Capturas que devem ser geradas manualmente para a entrega:
 
-- Implementacao tecnica dos requisitos: atendida.
-- Contratos WSDL/XSD: atendidos.
-- Seguranca SOAP com JWT em `wsse:Security`: atendida.
-- Testes SOAP: suportados e documentados.
-- Logs e monitoramento: atendidos.
+- print do WSDL aberto no navegador em `http://127.0.0.1:8010/?wsdl`
+- print do SoapUI importando o WSDL
+- print do `login` retornando token JWT
+- print de operacao protegida com token valido
+- print de erro sem token
+- print de erro com token invalido
+- print de exemplo de XML malformado
+- print do arquivo `logs/catalogo_soap.log` aberto com registros relevantes
 
-Para a entrega final, faltam apenas as capturas de tela e evidencias visuais produzidas durante os testes no SoapUI/Postman e no arquivo de log.
+## 8. Conclusao
+
+O projeto apresenta:
+
+- contrato formal via WSDL;
+- tipos XML definidos em XSD externo;
+- seguranca SOAP com JWT em `wsse:Security/wsse:BinarySecurityToken`;
+- testes de sucesso e erro;
+- logs de execucao e autenticacao.
+
+As evidencias finais que ainda dependem do aluno sao exclusivamente visuais, por meio de capturas de tela do navegador, SoapUI/Postman e arquivo de log.

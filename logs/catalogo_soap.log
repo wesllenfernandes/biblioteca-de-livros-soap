@@ -537,3 +537,30 @@ spyne.model.fault.Fault: Fault(Client.Data: 'Nao e possivel remover categoria co
 2026-04-28 13:36:21,268 [INFO] [remover_curso] ip=127.0.0.1 curso removido id=6
 2026-04-28 13:44:25,974 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
 2026-04-28 13:47:09,647 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-28 14:13:39,732 [INFO] [login] ip=127.0.0.1 login realizado usuario=wesllen
+2026-04-28 14:14:11,868 [INFO] [remover_curso] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 14:14:11,871 [WARNING] [remover_curso] ip=127.0.0.1 curso_id=6 nao encontrado para remocao
+2026-04-28 14:14:11,871 [ERROR] Fault(Client: 'Curso nao encontrado.')
+Traceback (most recent call last):
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 581, in <module>
+    payload.get("usuario"),
+ModuleNotFoundError: No module named 'waitress'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 173, in process_request
+    ctx.out_object = self.call_wrapper(ctx)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\application.py", line 242, in call_wrapper
+    return ctx.descriptor.service_class.call_wrapper(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\AppData\Local\Programs\Python\Python311\Lib\site-packages\spyne\service.py", line 194, in call_wrapper
+    return ctx.function(*args)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wesll\Downloads\SISTEMAS PARA INTERNET\ORIETADO A SERVIÇOS\projeto orietado a serviço\catalogo_cursos_soap\app.py", line 424, in remover_curso
+    (curso_id,),
+spyne.model.fault.Fault: Fault(Client: 'Curso nao encontrado.')
+2026-04-28 14:14:26,927 [INFO] [remover_curso] ip=127.0.0.1 autenticado via middleware usuario=wesllen
+2026-04-28 14:14:26,932 [INFO] [remover_curso] ip=127.0.0.1 curso removido id=5
+2026-04-28 14:21:51,662 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
