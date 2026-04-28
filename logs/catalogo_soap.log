@@ -564,3 +564,8 @@ spyne.model.fault.Fault: Fault(Client: 'Curso nao encontrado.')
 2026-04-28 14:14:26,927 [INFO] [remover_curso] ip=127.0.0.1 autenticado via middleware usuario=wesllen
 2026-04-28 14:14:26,932 [INFO] [remover_curso] ip=127.0.0.1 curso removido id=5
 2026-04-28 14:21:51,662 [INFO] Initializing application {http://exemplo.com/catalogocursos}CatalogoCursosService...
+2026-04-28 14:23:54,707 [INFO] [login] ip=127.0.0.1 login realizado usuario=admin
+2026-04-28 14:23:54,717 [INFO] [listar_cursos] ip=127.0.0.1 retornou 3 cursos
+2026-04-28 14:24:05,835 [WARNING] [validar_token] ip=127.0.0.1 falha JWT: Token JWT invalido.
+2026-04-28 14:24:06,712 [INFO] [login] ip=127.0.0.1 login realizado usuario=admin
+2026-04-28 14:24:06,804 [INFO] [validar_token] ip=127.0.0.1 autenticado via middleware usuario=admin
