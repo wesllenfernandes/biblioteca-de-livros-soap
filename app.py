@@ -148,6 +148,22 @@ def decode_token(token):
         raise Fault(faultcode="Client.Auth", faultstring="Token JWT invalido.") from exc
 
 
+def extract_wsse_token_from_ctx(ctx):
+    in_document = getattr(ctx, "in_document", None)
+    if in_document is None:
+        return None
+
+    try:
+        ns = {"soap": SOAP_ENV_NS, "wsse": WSSE_NS}
+        token = in_document.findtext("soap:Header/wsse:Security/wsse:BinarySecurityToken", namespaces=ns)
+        if isinstance(token, str) and token.strip():
+            return token.strip()
+    except Exception:
+        return None
+
+    return None
+
+
 def require_authentication(ctx):
     transport = getattr(ctx, "transport", None)
     req_env = getattr(transport, "req_env", {}) if transport else {}
@@ -156,8 +172,10 @@ def require_authentication(ctx):
         payload = decode_token(authenticated_payload)
         ctx.udc = payload
         return payload
-    header = getattr(ctx, "in_header", None)
-    token = getattr(header, "token", None) if header else None
+    token = extract_wsse_token_from_ctx(ctx)
+    if token is None:
+        header = getattr(ctx, "in_header", None)
+        token = getattr(header, "token", None) if header else None
     if not isinstance(token, str) or not token.strip():
         raise Fault(
             faultcode="Client.Auth",

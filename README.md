@@ -73,6 +73,21 @@ Header esperado:
 </soapenv:Header>
 ```
 
+Exemplo completo de requisicao protegida:
+
+```xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://exemplo.com/catalogocursos">
+   <soapenv:Header>
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:BinarySecurityToken>JWT_OBTIDO_NO_LOGIN</wsse:BinarySecurityToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <cat:validar_token/>
+   </soapenv:Body>
+</soapenv:Envelope>
+```
+
 ### 4. Monitoramento e logs
 
 - Logs em arquivo: `logs/catalogo_soap.log`

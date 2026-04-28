@@ -18,7 +18,7 @@
   name="CatalogoCursosService">
   <wsdl:types>
     <xs:schema targetNamespace="http://exemplo.com/catalogocursos" elementFormDefault="qualified">
-      <xs:import namespace="http://exemplo.com/catalogocursos" schemaLocation="catalogo_cursos.xsd"/>
+      <xs:include schemaLocation="catalogo_cursos.xsd"/>
     </xs:schema>
   </wsdl:types>
 
