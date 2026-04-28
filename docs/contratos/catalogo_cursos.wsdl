@@ -1,532 +1,321 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:plink="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:wsdlsoap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdlsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap11env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap12env="http://www.w3.org/2003/05/soap-envelope" xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding" xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing" xmlns:xop="http://www.w3.org/2004/08/xop/include" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://exemplo.com/catalogocursos" targetNamespace="http://exemplo.com/catalogocursos" name="CatalogoCursosService">
-  <wsdl:types>
-    <xs:schema targetNamespace="http://exemplo.com/catalogocursos" elementFormDefault="qualified">
-      <xs:complexType name="Categoria">
-        <xs:sequence>
-          <xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
-          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="descricao" type="xs:string" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="Curso">
-        <xs:sequence>
-          <xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
-          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true"/>
-          <xs:element name="categoria_nome" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="carga_horaria" type="xs:integer" minOccurs="0" nillable="true"/>
-          <xs:element name="preco" type="xs:integer" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="CursoArray">
-        <xs:sequence>
-          <xs:element name="Curso" type="tns:Curso" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="listar_categorias"/>
-      <xs:complexType name="listar_cursos"/>
-      <xs:complexType name="validar_token"/>
-      <xs:complexType name="Administrador">
-        <xs:sequence>
-          <xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
-          <xs:element name="usuario" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="criado_em" type="xs:string" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="ResultadoOperacao">
-        <xs:sequence>
-          <xs:element name="sucesso" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="mensagem" type="xs:string" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="SecurityHeader">
-        <xs:sequence>
-          <xs:element name="token" type="xs:string" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="Token">
-        <xs:sequence>
-          <xs:element name="token" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="tipo" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="expira_em" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="administrador_id" type="xs:integer" minOccurs="0" nillable="true"/>
-          <xs:element name="administrador_nome" type="xs:string" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="atualizar_categoria">
-        <xs:sequence>
-          <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true"/>
-          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="descricao" type="xs:string" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="atualizar_categoriaResponse">
-        <xs:sequence>
-          <xs:element name="atualizar_categoriaResult" type="tns:Categoria" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="atualizar_curso">
-        <xs:sequence>
-          <xs:element name="curso_id" type="xs:integer" minOccurs="0" nillable="true"/>
-          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true"/>
-          <xs:element name="carga_horaria" type="xs:integer" minOccurs="0" nillable="true"/>
-          <xs:element name="preco" type="xs:integer" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="atualizar_cursoResponse">
-        <xs:sequence>
-          <xs:element name="atualizar_cursoResult" type="tns:Curso" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="buscar_por_categoria">
-        <xs:sequence>
-          <xs:element name="categoria" type="xs:string" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="buscar_por_categoriaResponse">
-        <xs:sequence>
-          <xs:element name="buscar_por_categoriaResult" type="tns:CursoArray" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="cadastrar_categoria">
-        <xs:sequence>
-          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="descricao" type="xs:string" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="cadastrar_categoriaResponse">
-        <xs:sequence>
-          <xs:element name="cadastrar_categoriaResult" type="tns:Categoria" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="cadastrar_curso">
-        <xs:sequence>
-          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true"/>
-          <xs:element name="carga_horaria" type="xs:integer" minOccurs="0" nillable="true"/>
-          <xs:element name="preco" type="xs:integer" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="cadastrar_cursoResponse">
-        <xs:sequence>
-          <xs:element name="cadastrar_cursoResult" type="tns:Curso" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="consultar_categoria">
-        <xs:sequence>
-          <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="consultar_categoriaResponse">
-        <xs:sequence>
-          <xs:element name="consultar_categoriaResult" type="tns:Categoria" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="consultar_curso">
-        <xs:sequence>
-          <xs:element name="curso_id" type="xs:integer" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="consultar_cursoResponse">
-        <xs:sequence>
-          <xs:element name="consultar_cursoResult" type="tns:Curso" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="criar_administrador">
-        <xs:sequence>
-          <xs:element name="usuario" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="senha" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="login">
-        <xs:sequence>
-          <xs:element name="usuario" type="xs:string" minOccurs="0" nillable="true"/>
-          <xs:element name="senha" type="xs:string" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="remover_categoria">
-        <xs:sequence>
-          <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="remover_curso">
-        <xs:sequence>
-          <xs:element name="curso_id" type="xs:integer" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="validar_tokenResponse">
-        <xs:sequence>
-          <xs:element name="validar_tokenResult" type="xs:string" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="CategoriaArray">
-        <xs:sequence>
-          <xs:element name="Categoria" type="tns:Categoria" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="criar_administradorResponse">
-        <xs:sequence>
-          <xs:element name="criar_administradorResult" type="tns:Administrador" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="loginResponse">
-        <xs:sequence>
-          <xs:element name="loginResult" type="tns:Token" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="remover_categoriaResponse">
-        <xs:sequence>
-          <xs:element name="remover_categoriaResult" type="tns:ResultadoOperacao" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="remover_cursoResponse">
-        <xs:sequence>
-          <xs:element name="remover_cursoResult" type="tns:ResultadoOperacao" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="listar_categoriasResponse">
-        <xs:sequence>
-          <xs:element name="listar_categoriasResult" type="tns:CategoriaArray" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="listar_cursosResponse">
-        <xs:sequence>
-          <xs:element name="listar_cursosResult" type="tns:CursoArray" minOccurs="0" nillable="true"/>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:element name="Categoria" type="tns:Categoria"/>
-      <xs:element name="Curso" type="tns:Curso"/>
-      <xs:element name="CursoArray" type="tns:CursoArray"/>
-      <xs:element name="listar_categorias" type="tns:listar_categorias"/>
-      <xs:element name="listar_cursos" type="tns:listar_cursos"/>
-      <xs:element name="validar_token" type="tns:validar_token"/>
-      <xs:element name="Administrador" type="tns:Administrador"/>
-      <xs:element name="ResultadoOperacao" type="tns:ResultadoOperacao"/>
-      <xs:element name="SecurityHeader" type="tns:SecurityHeader"/>
-      <xs:element name="Token" type="tns:Token"/>
-      <xs:element name="atualizar_categoria" type="tns:atualizar_categoria"/>
-      <xs:element name="atualizar_categoriaResponse" type="tns:atualizar_categoriaResponse"/>
-      <xs:element name="atualizar_curso" type="tns:atualizar_curso"/>
-      <xs:element name="atualizar_cursoResponse" type="tns:atualizar_cursoResponse"/>
-      <xs:element name="buscar_por_categoria" type="tns:buscar_por_categoria"/>
-      <xs:element name="buscar_por_categoriaResponse" type="tns:buscar_por_categoriaResponse"/>
-      <xs:element name="cadastrar_categoria" type="tns:cadastrar_categoria"/>
-      <xs:element name="cadastrar_categoriaResponse" type="tns:cadastrar_categoriaResponse"/>
-      <xs:element name="cadastrar_curso" type="tns:cadastrar_curso"/>
-      <xs:element name="cadastrar_cursoResponse" type="tns:cadastrar_cursoResponse"/>
-      <xs:element name="consultar_categoria" type="tns:consultar_categoria"/>
-      <xs:element name="consultar_categoriaResponse" type="tns:consultar_categoriaResponse"/>
-      <xs:element name="consultar_curso" type="tns:consultar_curso"/>
-      <xs:element name="consultar_cursoResponse" type="tns:consultar_cursoResponse"/>
-      <xs:element name="criar_administrador" type="tns:criar_administrador"/>
-      <xs:element name="login" type="tns:login"/>
-      <xs:element name="remover_categoria" type="tns:remover_categoria"/>
-      <xs:element name="remover_curso" type="tns:remover_curso"/>
-      <xs:element name="validar_tokenResponse" type="tns:validar_tokenResponse"/>
-      <xs:element name="CategoriaArray" type="tns:CategoriaArray"/>
-      <xs:element name="criar_administradorResponse" type="tns:criar_administradorResponse"/>
-      <xs:element name="loginResponse" type="tns:loginResponse"/>
-      <xs:element name="remover_categoriaResponse" type="tns:remover_categoriaResponse"/>
-      <xs:element name="remover_cursoResponse" type="tns:remover_cursoResponse"/>
-      <xs:element name="listar_categoriasResponse" type="tns:listar_categoriasResponse"/>
-      <xs:element name="listar_cursosResponse" type="tns:listar_cursosResponse"/>
-    </xs:schema>
-  </wsdl:types>
-  <wsdl:message name="listar_cursos">
-    <wsdl:part name="listar_cursos" element="tns:listar_cursos"/>
-  </wsdl:message>
-  <wsdl:message name="listar_cursosResponse">
-    <wsdl:part name="listar_cursosResponse" element="tns:listar_cursosResponse"/>
-  </wsdl:message>
-  <wsdl:message name="SecurityHeader">
-    <wsdl:part name="SecurityHeader" element="tns:SecurityHeader"/>
-  </wsdl:message>
-  <wsdl:message name="consultar_curso">
-    <wsdl:part name="consultar_curso" element="tns:consultar_curso"/>
-  </wsdl:message>
-  <wsdl:message name="consultar_cursoResponse">
-    <wsdl:part name="consultar_cursoResponse" element="tns:consultar_cursoResponse"/>
-  </wsdl:message>
-  <wsdl:message name="buscar_por_categoria">
-    <wsdl:part name="buscar_por_categoria" element="tns:buscar_por_categoria"/>
-  </wsdl:message>
-  <wsdl:message name="buscar_por_categoriaResponse">
-    <wsdl:part name="buscar_por_categoriaResponse" element="tns:buscar_por_categoriaResponse"/>
-  </wsdl:message>
-  <wsdl:message name="listar_categorias">
-    <wsdl:part name="listar_categorias" element="tns:listar_categorias"/>
-  </wsdl:message>
-  <wsdl:message name="listar_categoriasResponse">
-    <wsdl:part name="listar_categoriasResponse" element="tns:listar_categoriasResponse"/>
-  </wsdl:message>
-  <wsdl:message name="consultar_categoria">
-    <wsdl:part name="consultar_categoria" element="tns:consultar_categoria"/>
-  </wsdl:message>
-  <wsdl:message name="consultar_categoriaResponse">
-    <wsdl:part name="consultar_categoriaResponse" element="tns:consultar_categoriaResponse"/>
-  </wsdl:message>
-  <wsdl:message name="cadastrar_categoria">
-    <wsdl:part name="cadastrar_categoria" element="tns:cadastrar_categoria"/>
-  </wsdl:message>
-  <wsdl:message name="cadastrar_categoriaResponse">
-    <wsdl:part name="cadastrar_categoriaResponse" element="tns:cadastrar_categoriaResponse"/>
-  </wsdl:message>
-  <wsdl:message name="atualizar_categoria">
-    <wsdl:part name="atualizar_categoria" element="tns:atualizar_categoria"/>
-  </wsdl:message>
-  <wsdl:message name="atualizar_categoriaResponse">
-    <wsdl:part name="atualizar_categoriaResponse" element="tns:atualizar_categoriaResponse"/>
-  </wsdl:message>
-  <wsdl:message name="remover_categoria">
-    <wsdl:part name="remover_categoria" element="tns:remover_categoria"/>
-  </wsdl:message>
-  <wsdl:message name="remover_categoriaResponse">
-    <wsdl:part name="remover_categoriaResponse" element="tns:remover_categoriaResponse"/>
-  </wsdl:message>
-  <wsdl:message name="cadastrar_curso">
-    <wsdl:part name="cadastrar_curso" element="tns:cadastrar_curso"/>
-  </wsdl:message>
-  <wsdl:message name="cadastrar_cursoResponse">
-    <wsdl:part name="cadastrar_cursoResponse" element="tns:cadastrar_cursoResponse"/>
-  </wsdl:message>
-  <wsdl:message name="atualizar_curso">
-    <wsdl:part name="atualizar_curso" element="tns:atualizar_curso"/>
-  </wsdl:message>
-  <wsdl:message name="atualizar_cursoResponse">
-    <wsdl:part name="atualizar_cursoResponse" element="tns:atualizar_cursoResponse"/>
-  </wsdl:message>
-  <wsdl:message name="remover_curso">
-    <wsdl:part name="remover_curso" element="tns:remover_curso"/>
-  </wsdl:message>
-  <wsdl:message name="remover_cursoResponse">
-    <wsdl:part name="remover_cursoResponse" element="tns:remover_cursoResponse"/>
-  </wsdl:message>
-  <wsdl:message name="criar_administrador">
-    <wsdl:part name="criar_administrador" element="tns:criar_administrador"/>
-  </wsdl:message>
-  <wsdl:message name="criar_administradorResponse">
-    <wsdl:part name="criar_administradorResponse" element="tns:criar_administradorResponse"/>
-  </wsdl:message>
-  <wsdl:message name="login">
-    <wsdl:part name="login" element="tns:login"/>
-  </wsdl:message>
-  <wsdl:message name="loginResponse">
-    <wsdl:part name="loginResponse" element="tns:loginResponse"/>
-  </wsdl:message>
-  <wsdl:message name="validar_token">
-    <wsdl:part name="validar_token" element="tns:validar_token"/>
-  </wsdl:message>
-  <wsdl:message name="validar_tokenResponse">
-    <wsdl:part name="validar_tokenResponse" element="tns:validar_tokenResponse"/>
-  </wsdl:message>
-  <wsdl:service name="CatalogoCursosService">
-    <wsdl:port name="CatalogoCursosService" binding="tns:CatalogoCursosService">
-      <wsdlsoap11:address location="http://127.0.0.1:8010/"/>
-    </wsdl:port>
-  </wsdl:service>
-  <wsdl:portType name="CatalogoCursosService">
-    <wsdl:operation name="listar_cursos" parameterOrder="listar_cursos">
-      <wsdl:input name="listar_cursos" message="tns:listar_cursos"/>
-      <wsdl:output name="listar_cursosResponse" message="tns:listar_cursosResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="consultar_curso" parameterOrder="consultar_curso">
-      <wsdl:input name="consultar_curso" message="tns:consultar_curso"/>
-      <wsdl:output name="consultar_cursoResponse" message="tns:consultar_cursoResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="buscar_por_categoria" parameterOrder="buscar_por_categoria">
-      <wsdl:input name="buscar_por_categoria" message="tns:buscar_por_categoria"/>
-      <wsdl:output name="buscar_por_categoriaResponse" message="tns:buscar_por_categoriaResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="listar_categorias" parameterOrder="listar_categorias">
-      <wsdl:input name="listar_categorias" message="tns:listar_categorias"/>
-      <wsdl:output name="listar_categoriasResponse" message="tns:listar_categoriasResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="consultar_categoria" parameterOrder="consultar_categoria">
-      <wsdl:input name="consultar_categoria" message="tns:consultar_categoria"/>
-      <wsdl:output name="consultar_categoriaResponse" message="tns:consultar_categoriaResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="cadastrar_categoria" parameterOrder="cadastrar_categoria">
-      <wsdl:input name="cadastrar_categoria" message="tns:cadastrar_categoria"/>
-      <wsdl:output name="cadastrar_categoriaResponse" message="tns:cadastrar_categoriaResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="atualizar_categoria" parameterOrder="atualizar_categoria">
-      <wsdl:input name="atualizar_categoria" message="tns:atualizar_categoria"/>
-      <wsdl:output name="atualizar_categoriaResponse" message="tns:atualizar_categoriaResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="remover_categoria" parameterOrder="remover_categoria">
-      <wsdl:input name="remover_categoria" message="tns:remover_categoria"/>
-      <wsdl:output name="remover_categoriaResponse" message="tns:remover_categoriaResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="cadastrar_curso" parameterOrder="cadastrar_curso">
-      <wsdl:input name="cadastrar_curso" message="tns:cadastrar_curso"/>
-      <wsdl:output name="cadastrar_cursoResponse" message="tns:cadastrar_cursoResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="atualizar_curso" parameterOrder="atualizar_curso">
-      <wsdl:input name="atualizar_curso" message="tns:atualizar_curso"/>
-      <wsdl:output name="atualizar_cursoResponse" message="tns:atualizar_cursoResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="remover_curso" parameterOrder="remover_curso">
-      <wsdl:input name="remover_curso" message="tns:remover_curso"/>
-      <wsdl:output name="remover_cursoResponse" message="tns:remover_cursoResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="criar_administrador" parameterOrder="criar_administrador">
-      <wsdl:input name="criar_administrador" message="tns:criar_administrador"/>
-      <wsdl:output name="criar_administradorResponse" message="tns:criar_administradorResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="login" parameterOrder="login">
-      <wsdl:input name="login" message="tns:login"/>
-      <wsdl:output name="loginResponse" message="tns:loginResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="validar_token" parameterOrder="validar_token">
-      <wsdl:input name="validar_token" message="tns:validar_token"/>
-      <wsdl:output name="validar_tokenResponse" message="tns:validar_tokenResponse"/>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="CatalogoCursosService" type="tns:CatalogoCursosService">
-    <wsdlsoap11:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="listar_cursos">
-      <wsdlsoap11:operation soapAction="listar_cursos" style="document"/>
-      <wsdl:input name="listar_cursos">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="listar_cursosResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="consultar_curso">
-      <wsdlsoap11:operation soapAction="consultar_curso" style="document"/>
-      <wsdl:input name="consultar_curso">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="consultar_cursoResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="buscar_por_categoria">
-      <wsdlsoap11:operation soapAction="buscar_por_categoria" style="document"/>
-      <wsdl:input name="buscar_por_categoria">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="buscar_por_categoriaResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="listar_categorias">
-      <wsdlsoap11:operation soapAction="listar_categorias" style="document"/>
-      <wsdl:input name="listar_categorias">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="listar_categoriasResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="consultar_categoria">
-      <wsdlsoap11:operation soapAction="consultar_categoria" style="document"/>
-      <wsdl:input name="consultar_categoria">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="consultar_categoriaResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="cadastrar_categoria">
-      <wsdlsoap11:operation soapAction="cadastrar_categoria" style="document"/>
-      <wsdl:input name="cadastrar_categoria">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="cadastrar_categoriaResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="atualizar_categoria">
-      <wsdlsoap11:operation soapAction="atualizar_categoria" style="document"/>
-      <wsdl:input name="atualizar_categoria">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="atualizar_categoriaResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="remover_categoria">
-      <wsdlsoap11:operation soapAction="remover_categoria" style="document"/>
-      <wsdl:input name="remover_categoria">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="remover_categoriaResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="cadastrar_curso">
-      <wsdlsoap11:operation soapAction="cadastrar_curso" style="document"/>
-      <wsdl:input name="cadastrar_curso">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="cadastrar_cursoResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="atualizar_curso">
-      <wsdlsoap11:operation soapAction="atualizar_curso" style="document"/>
-      <wsdl:input name="atualizar_curso">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="atualizar_cursoResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="remover_curso">
-      <wsdlsoap11:operation soapAction="remover_curso" style="document"/>
-      <wsdl:input name="remover_curso">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="remover_cursoResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="criar_administrador">
-      <wsdlsoap11:operation soapAction="criar_administrador" style="document"/>
-      <wsdl:input name="criar_administrador">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="criar_administradorResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="login">
-      <wsdlsoap11:operation soapAction="login" style="document"/>
-      <wsdl:input name="login">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="loginResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="validar_token">
-      <wsdlsoap11:operation soapAction="validar_token" style="document"/>
-      <wsdl:input name="validar_token">
-        <wsdlsoap11:body use="literal"/>
-        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
-      </wsdl:input>
-      <wsdl:output name="validar_tokenResponse">
-        <wsdlsoap11:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-</wsdl:definitions>
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:plink="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+  xmlns:wsdlsoap11="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:wsdlsoap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap11enc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:soap11env="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:soap12env="http://www.w3.org/2003/05/soap-envelope"
+  xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding"
+  xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing"
+  xmlns:xop="http://www.w3.org/2004/08/xop/include"
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:tns="http://exemplo.com/catalogocursos"
+  targetNamespace="http://exemplo.com/catalogocursos"
+  name="CatalogoCursosService">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://exemplo.com/catalogocursos" elementFormDefault="qualified">
+      <xs:import namespace="http://exemplo.com/catalogocursos" schemaLocation="catalogo_cursos.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+
+  <wsdl:message name="listar_cursos">
+    <wsdl:part name="listar_cursos" element="tns:listar_cursos"/>
+  </wsdl:message>
+  <wsdl:message name="listar_cursosResponse">
+    <wsdl:part name="listar_cursosResponse" element="tns:listar_cursosResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SecurityHeader">
+    <wsdl:part name="SecurityHeader" element="tns:SecurityHeader"/>
+  </wsdl:message>
+  <wsdl:message name="consultar_curso">
+    <wsdl:part name="consultar_curso" element="tns:consultar_curso"/>
+  </wsdl:message>
+  <wsdl:message name="consultar_cursoResponse">
+    <wsdl:part name="consultar_cursoResponse" element="tns:consultar_cursoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="buscar_por_categoria">
+    <wsdl:part name="buscar_por_categoria" element="tns:buscar_por_categoria"/>
+  </wsdl:message>
+  <wsdl:message name="buscar_por_categoriaResponse">
+    <wsdl:part name="buscar_por_categoriaResponse" element="tns:buscar_por_categoriaResponse"/>
+  </wsdl:message>
+  <wsdl:message name="listar_categorias">
+    <wsdl:part name="listar_categorias" element="tns:listar_categorias"/>
+  </wsdl:message>
+  <wsdl:message name="listar_categoriasResponse">
+    <wsdl:part name="listar_categoriasResponse" element="tns:listar_categoriasResponse"/>
+  </wsdl:message>
+  <wsdl:message name="consultar_categoria">
+    <wsdl:part name="consultar_categoria" element="tns:consultar_categoria"/>
+  </wsdl:message>
+  <wsdl:message name="consultar_categoriaResponse">
+    <wsdl:part name="consultar_categoriaResponse" element="tns:consultar_categoriaResponse"/>
+  </wsdl:message>
+  <wsdl:message name="cadastrar_categoria">
+    <wsdl:part name="cadastrar_categoria" element="tns:cadastrar_categoria"/>
+  </wsdl:message>
+  <wsdl:message name="cadastrar_categoriaResponse">
+    <wsdl:part name="cadastrar_categoriaResponse" element="tns:cadastrar_categoriaResponse"/>
+  </wsdl:message>
+  <wsdl:message name="atualizar_categoria">
+    <wsdl:part name="atualizar_categoria" element="tns:atualizar_categoria"/>
+  </wsdl:message>
+  <wsdl:message name="atualizar_categoriaResponse">
+    <wsdl:part name="atualizar_categoriaResponse" element="tns:atualizar_categoriaResponse"/>
+  </wsdl:message>
+  <wsdl:message name="remover_categoria">
+    <wsdl:part name="remover_categoria" element="tns:remover_categoria"/>
+  </wsdl:message>
+  <wsdl:message name="remover_categoriaResponse">
+    <wsdl:part name="remover_categoriaResponse" element="tns:remover_categoriaResponse"/>
+  </wsdl:message>
+  <wsdl:message name="cadastrar_curso">
+    <wsdl:part name="cadastrar_curso" element="tns:cadastrar_curso"/>
+  </wsdl:message>
+  <wsdl:message name="cadastrar_cursoResponse">
+    <wsdl:part name="cadastrar_cursoResponse" element="tns:cadastrar_cursoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="atualizar_curso">
+    <wsdl:part name="atualizar_curso" element="tns:atualizar_curso"/>
+  </wsdl:message>
+  <wsdl:message name="atualizar_cursoResponse">
+    <wsdl:part name="atualizar_cursoResponse" element="tns:atualizar_cursoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="remover_curso">
+    <wsdl:part name="remover_curso" element="tns:remover_curso"/>
+  </wsdl:message>
+  <wsdl:message name="remover_cursoResponse">
+    <wsdl:part name="remover_cursoResponse" element="tns:remover_cursoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="criar_administrador">
+    <wsdl:part name="criar_administrador" element="tns:criar_administrador"/>
+  </wsdl:message>
+  <wsdl:message name="criar_administradorResponse">
+    <wsdl:part name="criar_administradorResponse" element="tns:criar_administradorResponse"/>
+  </wsdl:message>
+  <wsdl:message name="login">
+    <wsdl:part name="login" element="tns:login"/>
+  </wsdl:message>
+  <wsdl:message name="loginResponse">
+    <wsdl:part name="loginResponse" element="tns:loginResponse"/>
+  </wsdl:message>
+  <wsdl:message name="validar_token">
+    <wsdl:part name="validar_token" element="tns:validar_token"/>
+  </wsdl:message>
+  <wsdl:message name="validar_tokenResponse">
+    <wsdl:part name="validar_tokenResponse" element="tns:validar_tokenResponse"/>
+  </wsdl:message>
+
+  <wsdl:service name="CatalogoCursosService">
+    <wsdl:port name="CatalogoCursosService" binding="tns:CatalogoCursosService">
+      <wsdlsoap11:address location="http://127.0.0.1:8010/"/>
+    </wsdl:port>
+  </wsdl:service>
+
+  <wsdl:portType name="CatalogoCursosService">
+    <wsdl:operation name="listar_cursos" parameterOrder="listar_cursos">
+      <wsdl:input name="listar_cursos" message="tns:listar_cursos"/>
+      <wsdl:output name="listar_cursosResponse" message="tns:listar_cursosResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="consultar_curso" parameterOrder="consultar_curso">
+      <wsdl:input name="consultar_curso" message="tns:consultar_curso"/>
+      <wsdl:output name="consultar_cursoResponse" message="tns:consultar_cursoResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="buscar_por_categoria" parameterOrder="buscar_por_categoria">
+      <wsdl:input name="buscar_por_categoria" message="tns:buscar_por_categoria"/>
+      <wsdl:output name="buscar_por_categoriaResponse" message="tns:buscar_por_categoriaResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="listar_categorias" parameterOrder="listar_categorias">
+      <wsdl:input name="listar_categorias" message="tns:listar_categorias"/>
+      <wsdl:output name="listar_categoriasResponse" message="tns:listar_categoriasResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="consultar_categoria" parameterOrder="consultar_categoria">
+      <wsdl:input name="consultar_categoria" message="tns:consultar_categoria"/>
+      <wsdl:output name="consultar_categoriaResponse" message="tns:consultar_categoriaResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="cadastrar_categoria" parameterOrder="cadastrar_categoria">
+      <wsdl:input name="cadastrar_categoria" message="tns:cadastrar_categoria"/>
+      <wsdl:output name="cadastrar_categoriaResponse" message="tns:cadastrar_categoriaResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="atualizar_categoria" parameterOrder="atualizar_categoria">
+      <wsdl:input name="atualizar_categoria" message="tns:atualizar_categoria"/>
+      <wsdl:output name="atualizar_categoriaResponse" message="tns:atualizar_categoriaResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="remover_categoria" parameterOrder="remover_categoria">
+      <wsdl:input name="remover_categoria" message="tns:remover_categoria"/>
+      <wsdl:output name="remover_categoriaResponse" message="tns:remover_categoriaResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="cadastrar_curso" parameterOrder="cadastrar_curso">
+      <wsdl:input name="cadastrar_curso" message="tns:cadastrar_curso"/>
+      <wsdl:output name="cadastrar_cursoResponse" message="tns:cadastrar_cursoResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="atualizar_curso" parameterOrder="atualizar_curso">
+      <wsdl:input name="atualizar_curso" message="tns:atualizar_curso"/>
+      <wsdl:output name="atualizar_cursoResponse" message="tns:atualizar_cursoResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="remover_curso" parameterOrder="remover_curso">
+      <wsdl:input name="remover_curso" message="tns:remover_curso"/>
+      <wsdl:output name="remover_cursoResponse" message="tns:remover_cursoResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="criar_administrador" parameterOrder="criar_administrador">
+      <wsdl:input name="criar_administrador" message="tns:criar_administrador"/>
+      <wsdl:output name="criar_administradorResponse" message="tns:criar_administradorResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="login" parameterOrder="login">
+      <wsdl:input name="login" message="tns:login"/>
+      <wsdl:output name="loginResponse" message="tns:loginResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="validar_token" parameterOrder="validar_token">
+      <wsdl:input name="validar_token" message="tns:validar_token"/>
+      <wsdl:output name="validar_tokenResponse" message="tns:validar_tokenResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+
+  <wsdl:binding name="CatalogoCursosService" type="tns:CatalogoCursosService">
+    <wsdlsoap11:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="listar_cursos">
+      <wsdlsoap11:operation soapAction="listar_cursos" style="document"/>
+      <wsdl:input name="listar_cursos">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="listar_cursosResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultar_curso">
+      <wsdlsoap11:operation soapAction="consultar_curso" style="document"/>
+      <wsdl:input name="consultar_curso">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="consultar_cursoResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscar_por_categoria">
+      <wsdlsoap11:operation soapAction="buscar_por_categoria" style="document"/>
+      <wsdl:input name="buscar_por_categoria">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="buscar_por_categoriaResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_categorias">
+      <wsdlsoap11:operation soapAction="listar_categorias" style="document"/>
+      <wsdl:input name="listar_categorias">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="listar_categoriasResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultar_categoria">
+      <wsdlsoap11:operation soapAction="consultar_categoria" style="document"/>
+      <wsdl:input name="consultar_categoria">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="consultar_categoriaResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastrar_categoria">
+      <wsdlsoap11:operation soapAction="cadastrar_categoria" style="document"/>
+      <wsdl:input name="cadastrar_categoria">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="cadastrar_categoriaResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="atualizar_categoria">
+      <wsdlsoap11:operation soapAction="atualizar_categoria" style="document"/>
+      <wsdl:input name="atualizar_categoria">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="atualizar_categoriaResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="remover_categoria">
+      <wsdlsoap11:operation soapAction="remover_categoria" style="document"/>
+      <wsdl:input name="remover_categoria">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="remover_categoriaResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastrar_curso">
+      <wsdlsoap11:operation soapAction="cadastrar_curso" style="document"/>
+      <wsdl:input name="cadastrar_curso">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="cadastrar_cursoResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="atualizar_curso">
+      <wsdlsoap11:operation soapAction="atualizar_curso" style="document"/>
+      <wsdl:input name="atualizar_curso">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="atualizar_cursoResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="remover_curso">
+      <wsdlsoap11:operation soapAction="remover_curso" style="document"/>
+      <wsdl:input name="remover_curso">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="remover_cursoResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="criar_administrador">
+      <wsdlsoap11:operation soapAction="criar_administrador" style="document"/>
+      <wsdl:input name="criar_administrador">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="criar_administradorResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdlsoap11:operation soapAction="login" style="document"/>
+      <wsdl:input name="login">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="loginResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validar_token">
+      <wsdlsoap11:operation soapAction="validar_token" style="document"/>
+      <wsdl:input name="validar_token">
+        <wsdlsoap11:body use="literal"/>
+        <wsdlsoap11:header use="literal" message="tns:SecurityHeader" part="SecurityHeader"/>
+      </wsdl:input>
+      <wsdl:output name="validar_tokenResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

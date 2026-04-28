@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:tns="http://exemplo.com/catalogocursos"
-    targetNamespace="http://exemplo.com/catalogocursos"
-    elementFormDefault="qualified">
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="http://exemplo.com/catalogocursos"
+  targetNamespace="http://exemplo.com/catalogocursos"
+  elementFormDefault="qualified">
   <xs:complexType name="Categoria">
     <xs:sequence>
-      <xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="id" type="xs:int" minOccurs="0" nillable="true"/>
       <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
       <xs:element name="descricao" type="xs:string" minOccurs="0" nillable="true"/>
     </xs:sequence>
@@ -14,12 +14,12 @@
 
   <xs:complexType name="Curso">
     <xs:sequence>
-      <xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="id" type="xs:int" minOccurs="0" nillable="true"/>
       <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
-      <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="categoria_id" type="xs:int" minOccurs="0" nillable="true"/>
       <xs:element name="categoria_nome" type="xs:string" minOccurs="0" nillable="true"/>
-      <xs:element name="carga_horaria" type="xs:integer" minOccurs="0" nillable="true"/>
-      <xs:element name="preco" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="carga_horaria" type="xs:int" minOccurs="0" nillable="true"/>
+      <xs:element name="preco" type="xs:decimal" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -37,7 +37,7 @@
 
   <xs:complexType name="Administrador">
     <xs:sequence>
-      <xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="id" type="xs:int" minOccurs="0" nillable="true"/>
       <xs:element name="usuario" type="xs:string" minOccurs="0" nillable="true"/>
       <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
       <xs:element name="criado_em" type="xs:string" minOccurs="0" nillable="true"/>
@@ -46,7 +46,7 @@
 
   <xs:complexType name="ResultadoOperacao">
     <xs:sequence>
-      <xs:element name="sucesso" type="xs:string" minOccurs="0" nillable="true"/>
+      <xs:element name="sucesso" type="xs:boolean" minOccurs="0" nillable="true"/>
       <xs:element name="mensagem" type="xs:string" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
@@ -62,173 +62,161 @@
       <xs:element name="token" type="xs:string" minOccurs="0" nillable="true"/>
       <xs:element name="tipo" type="xs:string" minOccurs="0" nillable="true"/>
       <xs:element name="expira_em" type="xs:string" minOccurs="0" nillable="true"/>
-      <xs:element name="administrador_id" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="administrador_id" type="xs:int" minOccurs="0" nillable="true"/>
       <xs:element name="administrador_nome" type="xs:string" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="listar_cursos"/>
-  <xs:complexType name="listar_categorias"/>
-  <xs:complexType name="validar_token"/>
-
-  <xs:complexType name="consultar_curso">
-    <xs:sequence>
-      <xs:element name="curso_id" type="xs:integer" minOccurs="0" nillable="true"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="consultar_cursoResponse">
-    <xs:sequence>
-      <xs:element name="consultar_cursoResult" type="tns:Curso" minOccurs="0" nillable="true"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="buscar_por_categoria">
-    <xs:sequence>
-      <xs:element name="categoria" type="xs:string" minOccurs="0" nillable="true"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="buscar_por_categoriaResponse">
-    <xs:sequence>
-      <xs:element name="buscar_por_categoriaResult" type="tns:CursoArray" minOccurs="0" nillable="true"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="listar_cursosResponse">
+  <xs:complexType name="ListarCursosRequest"/>
+  <xs:complexType name="ListarCursosResponse">
     <xs:sequence>
       <xs:element name="listar_cursosResult" type="tns:CursoArray" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="listar_categoriasResponse">
+  <xs:complexType name="ConsultarCursoRequest">
+    <xs:sequence>
+      <xs:element name="curso_id" type="xs:int" minOccurs="0" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConsultarCursoResponse">
+    <xs:sequence>
+      <xs:element name="consultar_cursoResult" type="tns:Curso" minOccurs="0" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BuscarPorCategoriaRequest">
+    <xs:sequence>
+      <xs:element name="categoria" type="xs:string" minOccurs="0" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BuscarPorCategoriaResponse">
+    <xs:sequence>
+      <xs:element name="buscar_por_categoriaResult" type="tns:CursoArray" minOccurs="0" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ListarCategoriasRequest"/>
+  <xs:complexType name="ListarCategoriasResponse">
     <xs:sequence>
       <xs:element name="listar_categoriasResult" type="tns:CategoriaArray" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="consultar_categoria">
+  <xs:complexType name="ConsultarCategoriaRequest">
     <xs:sequence>
-      <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="categoria_id" type="xs:int" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:complexType name="consultar_categoriaResponse">
+  <xs:complexType name="ConsultarCategoriaResponse">
     <xs:sequence>
       <xs:element name="consultar_categoriaResult" type="tns:Categoria" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="cadastrar_categoria">
+  <xs:complexType name="CadastrarCategoriaRequest">
     <xs:sequence>
       <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
       <xs:element name="descricao" type="xs:string" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:complexType name="cadastrar_categoriaResponse">
+  <xs:complexType name="CadastrarCategoriaResponse">
     <xs:sequence>
       <xs:element name="cadastrar_categoriaResult" type="tns:Categoria" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="atualizar_categoria">
+  <xs:complexType name="AtualizarCategoriaRequest">
     <xs:sequence>
-      <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="categoria_id" type="xs:int" minOccurs="0" nillable="true"/>
       <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
       <xs:element name="descricao" type="xs:string" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:complexType name="atualizar_categoriaResponse">
+  <xs:complexType name="AtualizarCategoriaResponse">
     <xs:sequence>
       <xs:element name="atualizar_categoriaResult" type="tns:Categoria" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="remover_categoria">
+  <xs:complexType name="RemoverCategoriaRequest">
     <xs:sequence>
-      <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="categoria_id" type="xs:int" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:complexType name="remover_categoriaResponse">
+  <xs:complexType name="RemoverCategoriaResponse">
     <xs:sequence>
       <xs:element name="remover_categoriaResult" type="tns:ResultadoOperacao" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="cadastrar_curso">
+  <xs:complexType name="CadastrarCursoRequest">
     <xs:sequence>
       <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
-      <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true"/>
-      <xs:element name="carga_horaria" type="xs:integer" minOccurs="0" nillable="true"/>
-      <xs:element name="preco" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="categoria_id" type="xs:int" minOccurs="0" nillable="true"/>
+      <xs:element name="carga_horaria" type="xs:int" minOccurs="0" nillable="true"/>
+      <xs:element name="preco" type="xs:decimal" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:complexType name="cadastrar_cursoResponse">
+  <xs:complexType name="CadastrarCursoResponse">
     <xs:sequence>
       <xs:element name="cadastrar_cursoResult" type="tns:Curso" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="atualizar_curso">
+  <xs:complexType name="AtualizarCursoRequest">
     <xs:sequence>
-      <xs:element name="curso_id" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="curso_id" type="xs:int" minOccurs="0" nillable="true"/>
       <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
-      <xs:element name="categoria_id" type="xs:integer" minOccurs="0" nillable="true"/>
-      <xs:element name="carga_horaria" type="xs:integer" minOccurs="0" nillable="true"/>
-      <xs:element name="preco" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="categoria_id" type="xs:int" minOccurs="0" nillable="true"/>
+      <xs:element name="carga_horaria" type="xs:int" minOccurs="0" nillable="true"/>
+      <xs:element name="preco" type="xs:decimal" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:complexType name="atualizar_cursoResponse">
+  <xs:complexType name="AtualizarCursoResponse">
     <xs:sequence>
       <xs:element name="atualizar_cursoResult" type="tns:Curso" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="remover_curso">
+  <xs:complexType name="RemoverCursoRequest">
     <xs:sequence>
-      <xs:element name="curso_id" type="xs:integer" minOccurs="0" nillable="true"/>
+      <xs:element name="curso_id" type="xs:int" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:complexType name="remover_cursoResponse">
+  <xs:complexType name="RemoverCursoResponse">
     <xs:sequence>
       <xs:element name="remover_cursoResult" type="tns:ResultadoOperacao" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="criar_administrador">
+  <xs:complexType name="CriarAdministradorRequest">
     <xs:sequence>
       <xs:element name="usuario" type="xs:string" minOccurs="0" nillable="true"/>
       <xs:element name="senha" type="xs:string" minOccurs="0" nillable="true"/>
       <xs:element name="nome" type="xs:string" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:complexType name="criar_administradorResponse">
+  <xs:complexType name="CriarAdministradorResponse">
     <xs:sequence>
       <xs:element name="criar_administradorResult" type="tns:Administrador" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="login">
+  <xs:complexType name="LoginRequest">
     <xs:sequence>
       <xs:element name="usuario" type="xs:string" minOccurs="0" nillable="true"/>
       <xs:element name="senha" type="xs:string" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:complexType name="loginResponse">
+  <xs:complexType name="LoginResponse">
     <xs:sequence>
       <xs:element name="loginResult" type="tns:Token" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="validar_tokenResponse">
+  <xs:complexType name="ValidarTokenRequest"/>
+  <xs:complexType name="ValidarTokenResponse">
     <xs:sequence>
       <xs:element name="validar_tokenResult" type="xs:string" minOccurs="0" nillable="true"/>
     </xs:sequence>
@@ -242,32 +230,33 @@
   <xs:element name="ResultadoOperacao" type="tns:ResultadoOperacao"/>
   <xs:element name="SecurityHeader" type="tns:SecurityHeader"/>
   <xs:element name="Token" type="tns:Token"/>
-  <xs:element name="listar_cursos" type="tns:listar_cursos"/>
-  <xs:element name="listar_cursosResponse" type="tns:listar_cursosResponse"/>
-  <xs:element name="consultar_curso" type="tns:consultar_curso"/>
-  <xs:element name="consultar_cursoResponse" type="tns:consultar_cursoResponse"/>
-  <xs:element name="buscar_por_categoria" type="tns:buscar_por_categoria"/>
-  <xs:element name="buscar_por_categoriaResponse" type="tns:buscar_por_categoriaResponse"/>
-  <xs:element name="listar_categorias" type="tns:listar_categorias"/>
-  <xs:element name="listar_categoriasResponse" type="tns:listar_categoriasResponse"/>
-  <xs:element name="consultar_categoria" type="tns:consultar_categoria"/>
-  <xs:element name="consultar_categoriaResponse" type="tns:consultar_categoriaResponse"/>
-  <xs:element name="cadastrar_categoria" type="tns:cadastrar_categoria"/>
-  <xs:element name="cadastrar_categoriaResponse" type="tns:cadastrar_categoriaResponse"/>
-  <xs:element name="atualizar_categoria" type="tns:atualizar_categoria"/>
-  <xs:element name="atualizar_categoriaResponse" type="tns:atualizar_categoriaResponse"/>
-  <xs:element name="remover_categoria" type="tns:remover_categoria"/>
-  <xs:element name="remover_categoriaResponse" type="tns:remover_categoriaResponse"/>
-  <xs:element name="cadastrar_curso" type="tns:cadastrar_curso"/>
-  <xs:element name="cadastrar_cursoResponse" type="tns:cadastrar_cursoResponse"/>
-  <xs:element name="atualizar_curso" type="tns:atualizar_curso"/>
-  <xs:element name="atualizar_cursoResponse" type="tns:atualizar_cursoResponse"/>
-  <xs:element name="remover_curso" type="tns:remover_curso"/>
-  <xs:element name="remover_cursoResponse" type="tns:remover_cursoResponse"/>
-  <xs:element name="criar_administrador" type="tns:criar_administrador"/>
-  <xs:element name="criar_administradorResponse" type="tns:criar_administradorResponse"/>
-  <xs:element name="login" type="tns:login"/>
-  <xs:element name="loginResponse" type="tns:loginResponse"/>
-  <xs:element name="validar_token" type="tns:validar_token"/>
-  <xs:element name="validar_tokenResponse" type="tns:validar_tokenResponse"/>
+
+  <xs:element name="listar_cursos" type="tns:ListarCursosRequest"/>
+  <xs:element name="listar_cursosResponse" type="tns:ListarCursosResponse"/>
+  <xs:element name="consultar_curso" type="tns:ConsultarCursoRequest"/>
+  <xs:element name="consultar_cursoResponse" type="tns:ConsultarCursoResponse"/>
+  <xs:element name="buscar_por_categoria" type="tns:BuscarPorCategoriaRequest"/>
+  <xs:element name="buscar_por_categoriaResponse" type="tns:BuscarPorCategoriaResponse"/>
+  <xs:element name="listar_categorias" type="tns:ListarCategoriasRequest"/>
+  <xs:element name="listar_categoriasResponse" type="tns:ListarCategoriasResponse"/>
+  <xs:element name="consultar_categoria" type="tns:ConsultarCategoriaRequest"/>
+  <xs:element name="consultar_categoriaResponse" type="tns:ConsultarCategoriaResponse"/>
+  <xs:element name="cadastrar_categoria" type="tns:CadastrarCategoriaRequest"/>
+  <xs:element name="cadastrar_categoriaResponse" type="tns:CadastrarCategoriaResponse"/>
+  <xs:element name="atualizar_categoria" type="tns:AtualizarCategoriaRequest"/>
+  <xs:element name="atualizar_categoriaResponse" type="tns:AtualizarCategoriaResponse"/>
+  <xs:element name="remover_categoria" type="tns:RemoverCategoriaRequest"/>
+  <xs:element name="remover_categoriaResponse" type="tns:RemoverCategoriaResponse"/>
+  <xs:element name="cadastrar_curso" type="tns:CadastrarCursoRequest"/>
+  <xs:element name="cadastrar_cursoResponse" type="tns:CadastrarCursoResponse"/>
+  <xs:element name="atualizar_curso" type="tns:AtualizarCursoRequest"/>
+  <xs:element name="atualizar_cursoResponse" type="tns:AtualizarCursoResponse"/>
+  <xs:element name="remover_curso" type="tns:RemoverCursoRequest"/>
+  <xs:element name="remover_cursoResponse" type="tns:RemoverCursoResponse"/>
+  <xs:element name="criar_administrador" type="tns:CriarAdministradorRequest"/>
+  <xs:element name="criar_administradorResponse" type="tns:CriarAdministradorResponse"/>
+  <xs:element name="login" type="tns:LoginRequest"/>
+  <xs:element name="loginResponse" type="tns:LoginResponse"/>
+  <xs:element name="validar_token" type="tns:ValidarTokenRequest"/>
+  <xs:element name="validar_tokenResponse" type="tns:ValidarTokenResponse"/>
 </xs:schema>
